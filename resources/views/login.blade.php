@@ -20,9 +20,25 @@
     <div class="main container">
         <h1 class="pt-5 font-weight-bold" style="color:dodgerblue;"><i class="fas fa-fish"></i> 釣りコミ</h1>
         <div class="container">
-            <form class="form-signin py-3">
-                <input type="email" id="inputEmail" class="form-control my-3" placeholder="メールアドレス" required>
-                <input type="password" id="inputPassword" class="form-control my-3" placeholder="パスワード" required>
+            <form class="form-signin py-3" method="POST" action="{{ route('login') }}">
+                @csrf
+                <input type="email" id="email" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} name="email" value="{{ old('email') }} my-3" placeholder="メールアドレス" required autofocus>
+                    @if ($errors->has('email'))
+                        <span class="invalid-feedback">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
+                <input type="password" id="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} my-3" name="password" placeholder="パスワード" required>
+                    @if ($errors->has('password'))
+                        <span class="invalid-feedback">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                    @endif
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Remember Me') }}
+                        </label>
+                    </div>
                 <input type="submit" class="btn btn-primary btn-block font-weight-bold" value="ログイン">
             </form>
         </div>
