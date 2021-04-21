@@ -30,3 +30,6 @@ Route::get('article/point','ArticleController@point');
 Route::get('profile','ProfileController@detail');
 Route::get('profile/edit','ProfileController@edit');
 Route::post('profile','ProfileController@update');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
