@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="ja">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    <title>新規登録</title>
-</head>
+<html lang="{{ app()->getLocale() }}">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+        <title>新規登録</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+        <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ secure_asset('css/style.css') }}" rel="stylesheet">
+    </head>
 
 <body class="text-center bg-light">
     <div class="header fixed-top p-2 bg-primary text-white">
@@ -20,12 +20,27 @@
     <div class="main container">
         <h1 class="pt-5 font-weight-bold" style="color:dodgerblue;"><i class="fas fa-fish"></i> 釣りコミ</h1>
         <div class="container">
-            <form class="form-signin py-3">
-                <input type="text" id="inputName" class="form-control my-3" placeholder="ユーザー名" required>
-                <input type="email" id="inputEmail" class="form-control my-3" placeholder="メールアドレス" required>
-                <input type="password" id="inputPassword" class="form-control my-3" placeholder="パスワード" required>
-                <input type="password" id="password-confirm" class="form-control my-3" placeholder="パスワード（再入力）" required
-                    autocomplete="new-password">
+            <form class="py-3" method="POST" action="{{ route('register') }}">
+                @csrf
+                <input type="text" id="name" class="form-control @error('name') is-invalid @enderror my-3"  placeholder="ユーザー名" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                    @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                <input type="email" id="inputEmail" class="form-control @error('email') is-invalid @enderror my-3" placeholder="メールアドレス" name="email" value="{{ old('email') }}" required autocomplete="email">
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                <input type="password" id="inputPassword" class="form-control @error('password') is-invalid @enderror my-3" placeholder="パスワード" name="password" required autocomplete="new-password">
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                <input type="password" id="password-confirm" class="form-control my-3" placeholder="パスワード（再入力）" name="password_confirmation" required autocomplete="new-password">
                 <input class="btn btn-success btn-block font-weight-bold" type="submit" value="新規登録">
             </form>
         </div>

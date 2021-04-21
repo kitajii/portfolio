@@ -11,44 +11,41 @@
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/style.css') }}" rel="stylesheet">
-
     </head>
-
-<body class="text-center bg-light">
-    <div class="header fixed-top p-2 bg-primary text-white">
-        <p class="d-flex align-items-center justify-content-center h5 font-weight-bold my-2">ログイン</p>
-    </div>
-    <div class="main container">
-        <h1 class="pt-5 font-weight-bold" style="color:dodgerblue;"><i class="fas fa-fish"></i> 釣りコミ</h1>
-        <div class="container">
-            <form class="form-signin py-3" method="POST" action="{{ route('login') }}">
-                @csrf
-                <input type="email" id="email" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} my-3" name="email" value="{{ old('email') }}" placeholder="メールアドレス" required autofocus>
-                    @if ($errors->has('email'))
-                        <span class="invalid-feedback">
-                            <strong>{{ $errors->first('email') }}</strong>
-                        </span>
-                    @endif
-                <input type="password" id="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} my-3" name="password" placeholder="パスワード" required>
-                    @if ($errors->has('password'))
-                        <span class="invalid-feedback">
-                            <strong>{{ $errors->first('password') }}</strong>
-                        </span>
-                    @endif
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('messages.Remember Me') }}
-                        </label>
-                    </div>
-                <input type="submit" class="btn btn-primary btn-block font-weight-bold" value="ログイン">
-            </form>
+    <body class="text-center bg-light">
+        <div class="header fixed-top p-2 bg-primary text-white">
+            <p class="d-flex align-items-center justify-content-center h5 font-weight-bold my-2">ログイン</p>
         </div>
-        <div class="container">
-            <a href="#" type="button" class="btn btn-success btn-block font-weight-bold">新規登録</a>
+        <div class="main container">
+            <h1 class="pt-5 font-weight-bold" style="color:dodgerblue;"><i class="fas fa-fish"></i> 釣りコミ</h1>
+            <div class="container">
+                <form class="form-signin py-3" method="POST" action="{{ route('login') }}">
+                    @csrf
+                <input type="email" id="email" class="form-control @error('name') is-invalid @enderror my-3" name="email" value="{{ old('email') }}" placeholder="メールアドレス" required autofocus>
+                            @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                    <input type="password" id="password" class="form-control @error('password') is-invalid @enderror my-3" name="password" placeholder="パスワード" required>
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('messages.Remember Me') }}
+                            </label>
+                        </div>
+                    <input type="submit" class="btn btn-primary btn-block font-weight-bold" value="ログイン">
+                </form>
+            </div>
+            <div class="container">
+                <a href="{{ route('register') }}" type="button" class="btn btn-success btn-block font-weight-bold">新規登録</a>
+            </div>
         </div>
-    </div>
-
-    </div>
-</body>
-
+    
+        </div>
+    </body>
 </html>
