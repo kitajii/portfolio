@@ -15,6 +15,13 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('user_id');
+            $table->integer('weather_id');
+            $table->string('image_path')->nullable();;
+            $table->integer('size');
+            $table->string('comment')->nullable();
+            $table->float('latitude');
+            $table->float('longitude');
             $table->timestamps();
         });
     }

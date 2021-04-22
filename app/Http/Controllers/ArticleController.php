@@ -18,7 +18,7 @@ class ArticleController extends Controller
     
     public function create()
     {
-        return view('article.list');
+        return redirect('article/list');
     }
 
     public function list()
@@ -42,7 +42,7 @@ class ArticleController extends Controller
     }
     public function update()
     {
-        return view('article.detail');
+        return redirect('article/detail');
     }
     
     public function delete()
