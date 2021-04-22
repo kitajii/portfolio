@@ -4,7 +4,7 @@
 @section('title','マップ')
 
 @section('head-script')
-    <script src="http://maps.google.com/maps/api/js?key=AIzaSyAQ7GF8UWRS03uApoVVzF2v_3a4VrFPxpo&language=ja"></script>
+    <script src="https://maps.google.com/maps/api/js?key=AIzaSyAQ7GF8UWRS03uApoVVzF2v_3a4VrFPxpo&language=ja"></script>
 @endsection('head-script')
 
 @section('main')

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Profile extends Model
 {
     protected $guarded = [
-        'id','user_id'
+        'id'
     ];
 
     public static $rules = [
@@ -15,6 +15,6 @@ class Profile extends Model
     ];
     
     public function users() {
-        return $this->hasOne('App\User'); //プロフィールに対して作成者は1
+        return $this->belongsTo('App\User');
     }
 }

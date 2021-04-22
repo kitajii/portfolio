@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     protected $guarded = [
-        'id','user_id'
+        'id'
     ];
 
     public static $rules = [
@@ -15,6 +15,10 @@ class Article extends Model
     ];
     
     public function users() {
-        return $this->hasOne('App\User'); //記事に対して作成者は1
+        return $this->belongsTo('App\User');
     }
+    public function weathers() {
+        return $this->hasOne('App\Weather');
+    }
+    
 }

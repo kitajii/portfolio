@@ -7,7 +7,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
         <title>@yield('title')</title>
-        <!--<script src="{{ secure_asset('js/app.js') }}" defer></script>-->
+        <script src="{{ secure_asset('js/app.js') }}" defer></script>
         @yield('head-script')
         
         <link rel="preconnect" href="https://fonts.gstatic.com">
