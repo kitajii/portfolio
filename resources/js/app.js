@@ -29,4 +29,12 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+    data: {
+        show: false
+    },
+    methods: {
+        toggleCtrlPanel: function () {
+            this.show = !this.show;
+        }
+    }
 });
