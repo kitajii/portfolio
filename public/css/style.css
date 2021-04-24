@@ -54,13 +54,18 @@ footer {
 
 /* list.blade.php 検索ボタンアニメーション */
 
-.slide-down-enter-active,
-.slide-down-leave-active {
-  transition: all 0.5s;
+.narrow-down {
+  display: none;
 }
 
-.slide-down-enter,
-.slide-down-leave-to {
-  opacity: 0;
+#open-search {
+  width: 50px;
+  line-height: 56px;
+}
+
+#close-search {
+  display: none;
+  width: 50px;
+  line-height: 56px;
 }
 
