@@ -3,20 +3,33 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Profile;
+use App\Article;
 
 class ProfileController extends Controller
 {
-    public function detail()
+    public function detail(Request $request)
     {
-        return view('article.detail');
+        $user = Auth::user();
+        $profile = Profile::find($request->id); //idからレコードを取得
+        if(empty($profile)){
+            abort(404);
+        }
+        return view('profile.detail',['profile' => $profile, 'user' => $user]);
     }
     
-    public function edit()
+    public function edit(Request $request)
     {
-        return view('article.edit');
+        $user = Auth::user();
+        $profile = Profile::find($request->id); //idからレコードを取得
+        if(empty($profile)){
+            abort(404);
+        }
+        return view('profile.detail',['profile'=>$profile, 'user'=>$user]);
     }
     public function update()
     {
-        return view('article.detail');
+        return view('profile.detail');
     }
 }

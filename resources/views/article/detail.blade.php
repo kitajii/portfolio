@@ -2,6 +2,8 @@
 
 @section('title','釣果詳細')
 
+
+
 @section('main')
     <div class="main container">
         <div class="p-3 my-2 bg-white shadow-sm rounded">

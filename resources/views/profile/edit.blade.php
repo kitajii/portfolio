@@ -4,7 +4,7 @@
 
 @section('main')
     <div class="main container">
-        <form class="py-1">
+        <form action={{  }} class="py-1">
             <div class="form-group p-3 my-2 bg-white shadow-sm rounded">
                 <p class="h5 mb-2 font-weight-bold">ユーザー名</p>
                 <input type="text" id="inputName" class="form-control form-control-sm d-inline" style="width:200px"
