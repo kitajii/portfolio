@@ -40,7 +40,7 @@ class ProfileController extends Controller
             $path = $request->file('icon_path')->store('public/images/icons');
             $profile->icon_path = basename($path);
         } else {
-            $profile->icon_path = '';
+            $profile->icon_path = $profile->icon_path;
         }
 
         unset($new_profile['icon_path']);

@@ -73,7 +73,7 @@ class RegisterController extends Controller
         Profile::create([
             'user_id' => $user->id,
             'name' => $user->name,
-            'icon_path' => '',
+            'icon_path' => 'icon.png',
             'age'=> 0,
             'experience' => 0,
             'introduction' => ''

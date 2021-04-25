@@ -9,4 +9,8 @@ $(function() {
         $('#open-search').css('display','inline');
         $('#narrow-down').slideUp();
     });
+    $('#icon_path').on('change', function () {
+        var file = $(this).prop('files')[0];
+        $('#file_name').text(file.name);
+    });
 });

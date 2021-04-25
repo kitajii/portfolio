@@ -13,8 +13,9 @@
             <div class="form-group p-3 my-2 bg-white shadow-sm rounded">
                 <p class="h5 mb-2 font-weight-bold">アイコン</p>
                 <label class="btn btn-outline-primary btn-sm">
-                    <input type="file" name="icon_path" style="display:none;">画像を選択
+                    <input id="icon_path" type="file" name="icon_path" style="display:none;">画像を選択
                 </label>
+                <p id="file_name" class="mb-0">選択されていません</p>
             </div>
             <div class="form-group p-3 my-2 bg-white shadow-sm rounded">
                 <p class="h5 mb-2 font-weight-bold">年齢</p>
@@ -37,3 +38,6 @@
         </form>
     </div>
 @endsection('main')
+@section('foot-script')
+    <script src="{{ secure_asset('js/jquery.js') }}" defer></script>
+@endsection('foot-script')
