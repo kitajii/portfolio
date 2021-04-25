@@ -8,10 +8,7 @@
     <div class="main container">
         <div class="p-3 my-2 mx-3 bg-white shadow-sm rounded">
             <div class="my-4">
-                <a href="#" class="mx-auto" style="display: block; width: 64px; height: 64px; border-radius: 50%;">
-                    <div class="bg-secondary text-light py-3 rounded-circle" style="width: 64px; height: 64px;">アイコン
-                    </div>
-                </a>
+                <image src="{{ asset('storage/images/icons/'. $profile->icon_path) }}" class="rounded-circle border" style="width: 64px; height: 64px;"></image>
                 <p class="h5 my-3">{{ $profile->name }}</p>
             </div>
             <div class="px-4 text-left">

@@ -35,13 +35,14 @@ class ProfileController extends Controller
         $this->validate($request, Profile::$rules);
         $profile = Profile::find($request->id);
         $new_profile = $request->all();
-
-        if($request->file('icon_path')) {
-            $path = $request->file('icon_path')->store('public/image');
-            $new_profile['icon_path'] = basename($path);
-        }else{
-            $new_profile['icon_path'] = $profile->icon_path;
+        
+        if (isset($new_profile['icon_path'])) {
+            $path = $request->file('icon_path')->store('public/images/icons');
+            $profile->icon_path = basename($path);
+        } else {
+            $profile->icon_path = '';
         }
+
         unset($new_profile['icon_path']);
         unset($new_profile['_token']);
 
