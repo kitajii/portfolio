@@ -11,7 +11,9 @@ class Profile extends Model
     ];
 
     public static $rules = [
-        'name' => 'required'
+        'name' => 'required',
+        'age' => 'required',
+        'experience' => 'required'
     ];
     
     public function users() {

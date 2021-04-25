@@ -74,6 +74,7 @@ class RegisterController extends Controller
             'user_id' => $user->id,
             'name' => $user->name,
             'icon_path' => '',
+            'age'=> 0,
             'experience' => 0,
             'introduction' => ''
         ]);

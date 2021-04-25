@@ -26,10 +26,27 @@ class ProfileController extends Controller
         if(empty($profile)){
             abort(404);
         }
-        return view('profile.detail',['profile'=>$profile, 'user'=>$user]);
+        return view('profile.edit',['profile'=>$profile, 'user'=>$user]);
     }
-    public function update()
+    
+    public function update(Request $request)
     {
-        return view('profile.detail');
+        $user = Auth::user();
+        $this->validate($request, Profile::$rules);
+        $profile = Profile::find($request->id);
+        $new_profile = $request->all();
+
+        if($request->file('icon_path')) {
+            $path = $request->file('icon_path')->store('public/image');
+            $new_profile['icon_path'] = basename($path);
+        }else{
+            $new_profile['icon_path'] = $profile->icon_path;
+        }
+        unset($new_profile['icon_path']);
+        unset($new_profile['_token']);
+
+        $profile->fill($new_profile)->save();
+        
+        return view('profile.detail',['profile'=>$profile, 'user'=>$user]);
     }
 }
