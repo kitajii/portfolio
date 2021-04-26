@@ -8,7 +8,7 @@
     <div class="main container">
         <div class="p-3 my-2 mx-3 bg-white shadow-sm rounded">
             <div class="my-4">
-                <image src="{{ asset('storage/images/icons/'. $profile->icon_path) }}" class="rounded-circle border" style="width: 64px; height: 64px;"></image>
+                <image src="{{ asset('storage/images/icons/'. $profile->icon_path) }}" class="rounded-circle border" style="width: 128px; height: 128px;"></image>
                 <p class="h5 my-3">{{ $profile->name }}</p>
             </div>
             <div class="px-4 text-left">
@@ -27,8 +27,12 @@
                 <p>{{ $profile->introduction }}</p>
             </div>
             @if(($user->id) == ($profile->user_id))
-            <div class="text-right">
-                <a href="{{ action('ProfileController@edit', ['id'=> $profile->id]) }}">編集</a>
+            <div class="d-flex justify-content-around">
+                <a class="btn btn-outline-danger btn-sm px-3" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+                <a class="btn btn-outline-primary btn-sm px-3" href="{{ action('ProfileController@edit', ['id'=> $profile->id]) }}">プロフィール編集</a>
             </div>
             @endif
         </div>
