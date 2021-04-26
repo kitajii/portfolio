@@ -28,16 +28,19 @@
         <!-- nav-bar -->
         <footer class="fixed-bottom bg-light border d-flex justify-content-around">
             <div class="nav-item col-4">
-                <a class="h-100" style="display: block" href="#"><i class="fas fa-user fa-2x"
-                        style="line-height: 60px"></i></a>
+                <a class="h-100" style="display: block" href="{{ route('profile_detail', ['id'=>Auth::id()]) }}">
+                    <i class="fas fa-user fa-2x" style="line-height: 60px"></i>
+                </a>
             </div>
             <div class="nav-item col-4">
-                <a class="h-100" style="display: block" href="#"><i class="fas fa-map-marked fa-2x"
-                        style="line-height: 60px"></i></a>
+                <a class="h-100" style="display: block" href="{{ action('ArticleController@map') }}">
+                    <i class="fas fa-map-marked fa-2x" style="line-height: 60px"></i>
+                </a>
             </div>
             <div class="nav-item col-4">
-                <a class="h-100" style="display: block" href="#"><i class="fas fa-clipboard-list fa-2x"
-                        style="line-height: 60px"></i></a>
+                <a class="h-100" style="display: block" href="#">
+                <i class="fas fa-clipboard-list fa-2x" style="line-height: 60px"></i>
+                </a>
             </div>
         </footer>
     @yield('foot-script')

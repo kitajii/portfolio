@@ -14,7 +14,7 @@
             <div class="px-4 text-left">
                 <div class="d-flex justify-content-around">
                     @if(isset($profile->age))
-                    <p class="d-inline">年齢：{{ $profile->age }}</p>
+                    <p class="d-inline">年齢：{{ $profile->age }}歳</p>
                     @else
                     <p class="d-inline">年齢：未登録</p>
                     @endif
