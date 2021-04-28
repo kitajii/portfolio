@@ -18,6 +18,9 @@
                     var mapLat = position.coords.latitude;
                     var mapLng = position.coords.longitude;
                     var mapLatLng = new google.maps.LatLng(mapLat, mapLng);
+                    // formのvalueに緯度・経度を渡す
+                    document.getElementById('lat').value = mapLat;
+                    document.getElementById('lng').value = mapLng;
                     // 初回のみマップ作成
                     if(!map) {
                         // マップオプションを変数に格納
@@ -69,13 +72,13 @@
     <div class="map-container">
         <div id="map">
         </div>
-        <form action="{{ action('ArticleController@create') }}" id="send-latlng">
-            <input type="hidden" value="">
-            <button type="button" class="btn btn-success shadow-sm border-light font-weight-bold" style="position:fixed; bottom:84px; right:65px;">現在地で釣果を投稿する <i class="fas fa-pen text-light"></i></button>
-
-            <!--<button class="create-button btn btn-primary btn-block font-weight-bold mt-3 mx-auto" type="submit" style="width: 200px;" value="現在地で釣果を記録する">-->
-                <!--<i class="fas fa-pen fa-2x align-middle border p-3 bg-light text-secondary rounded-circle"></i>-->
-            <!--</button>-->
+        <form id="latlng" method="post" action="{{ action('ArticleController@add') }}">
+            @csrf
+            <input id="lat" name="lat" type="hidden" value="">
+            <input id="lng" name="lng" type="hidden" value="">
+            <button type="submit" class="btn btn-success shadow-sm border-light font-weight-bold" style="position:fixed; bottom:84px; right:65px;">
+                現在地で釣果を投稿する <i class="fas fa-pen text-light"></i>
+            </button>
         </form>
     </div>
 @endsection('main')

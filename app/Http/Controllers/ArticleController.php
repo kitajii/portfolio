@@ -6,17 +6,18 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    public function map()
+    public function map(Request $request)
     {
         return view('map');
     }
     
-    public function add()
+    public function add(Request $request)
     {
-        return view('article.create');
+        $latlng = $request->all();
+        return view('article.create',['latlng' => $latlng]);
     }
     
-    public function create()
+    public function create(Request $request)
     {
         return redirect('article/list');
     }

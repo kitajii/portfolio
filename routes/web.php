@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 Route::group(['middleware'=>'auth'], function() {
     Route::get('map','ArticleController@map');
-    Route::get('article/create','ArticleController@add');
+    Route::post('article/create','ArticleController@add');
     Route::post('article/list','ArticleController@create');
     Route::get('article/list','ArticleController@list');
     Route::get('article/list','ArticleController@search');

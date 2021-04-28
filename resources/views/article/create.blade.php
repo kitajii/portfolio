@@ -4,6 +4,8 @@
 
 @section('main')
     <div class="main container">
+        <p>{{ $latlng['lat'] }}</p>
+        <p>{{ $latlng['lng'] }}</p>
         <form>
             <div class="form-group p-3 my-2 bg-white shadow-sm rounded">
                 <p class="h5 mb-2 font-weight-bold">天気</p>
