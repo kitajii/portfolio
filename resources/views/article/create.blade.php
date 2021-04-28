@@ -38,8 +38,8 @@
                 <p class="h5 mb-2 font-weight-bold">コメント</p>
                 <textarea class="form-control" style="resize:none" name="comment" id="comment" rows="3"></textarea>
             </div>
-            <input type="hidden" name="lat" value="{{ $latlng['lat'] }}">
-            <input type="hidden" name="lng" value="{{ $latlng['lng'] }}">
+            <input type="hidden" name="latitude" value="{{ $latlng['lat'] }}">
+            <input type="hidden" name="longitude" value="{{ $latlng['lng'] }}">
             <button type="submit" class="btn btn-primary btn-block font-weight-bold my-3 mx-auto" style="width: 200px;">投稿する</button>
         </form>
     </div>
