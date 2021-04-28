@@ -15,7 +15,9 @@
                 // 取得成功した場合
                 function(position) {
                     // 緯度・経度を変数に格納
-                    var mapLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                    var mapLat = position.coords.latitude;
+                    var mapLng = position.coords.longitude;
+                    var mapLatLng = new google.maps.LatLng(mapLat, mapLng);
                     // 初回のみマップ作成
                     if(!map) {
                         // マップオプションを変数に格納
@@ -74,5 +76,5 @@
 @endsection('main')
 
 @section('foot-script')
-   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQ7GF8UWRS03uApoVVzF2v_3a4VrFPxpo&callback=initMap"></script>
+   <script src="{{config('services.google-map.apikey')}}"></script>
 @endsection('foot-script')
