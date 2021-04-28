@@ -40,6 +40,7 @@
             </div>
             <input type="hidden" name="latitude" value="{{ $latlng['lat'] }}">
             <input type="hidden" name="longitude" value="{{ $latlng['lng'] }}">
+            <input type="hidden" name="user_id" value="{{ $user->id }}">
             <button type="submit" class="btn btn-primary btn-block font-weight-bold my-3 mx-auto" style="width: 200px;">投稿する</button>
         </form>
     </div>
