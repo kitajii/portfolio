@@ -44,7 +44,7 @@ class ArticleController extends Controller
 
     public function list(Request $request)
     {
-        $posts = Article::all();
+        $posts = Article::all()->sortByDesc('created_at');
         
         return view('article.list', ['posts' => $posts]);
     }
