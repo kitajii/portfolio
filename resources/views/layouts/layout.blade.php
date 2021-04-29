@@ -38,7 +38,7 @@
                 </a>
             </div>
             <div class="nav-item col-4">
-                <a class="h-100" style="display: block" href="#">
+                <a class="h-100" style="display: block" href="{{ action('ArticleController@list') }}">
                 <i class="fas fa-clipboard-list fa-2x" style="line-height: 60px"></i>
                 </a>
             </div>

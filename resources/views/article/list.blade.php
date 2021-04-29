@@ -9,7 +9,6 @@
         <script src="{{ secure_asset('js/app.js') }}" defer></script>
 
         <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/style.css') }}" rel="stylesheet">
     </head>
@@ -208,7 +207,7 @@
             </a>
         </div>
         <div class="nav-item col-4">
-            <a class="h-100" style="display: block" href="#">
+            <a class="h-100" style="display: block" href="{{ action('ArticleController@list') }}">
             <i class="fas fa-clipboard-list fa-2x" style="line-height: 60px"></i>
             </a>
         </div>
