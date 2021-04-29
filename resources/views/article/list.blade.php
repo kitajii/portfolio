@@ -163,153 +163,54 @@
                     style="width: 200px;" type="submit">絞り込み検索</button>
             </form>
         </div>
-
+        @if(isset($posts))
         <ul class="list-unstyled mb-0">
+            @foreach($posts as $post)
             <a class="text-secondary text-decoration-none" href="https://www.google.co.jp/">
                 <li class="border-bottom py-3">
                     <div class="item-top mx-auto">
-                        <p class="h5 d-inline align-middle mx-2">2021年7月7日</p>
-                        <p class="h5 d-inline align-middle mx-2">07:10</p>
+                        <p class="h5 d-inline align-middle mx-2">{{ $post->created_at->format('Y年m月d日 H時i分') }}</p>
                         <i class="fas fa-sun fa-2x text-warning align-middle mx-2"></i>
                     </div>
                     <div class="item-bottom d-flex justify-content-around">
                         <div class="col-4 px-0">
                             <object>
-                                <a href="https://www.youtube.com/" class="mx-auto mt-3 text-decoration-none"
-                                    style="display: block; width: 64px; height: 64px; border-radius: 50%;">
-                                    <div class="bg-secondary text-light py-3 rounded-circle"
-                                        style="width: 64px; height: 64px;">アイコン</div>
+                                <a href="https://www.youtube.com/" class="mx-auto mt-2 text-decoration-none" style="display: block; width: 64px; height: 64px; border-radius: 50%;">
+                                    <image src="{{ asset('storage/images/icon/'. $post->user->profile->icon_path) }}" class="rounded-circle border" style="width: 64px; height: 64px;"></image>
                                 </a>
                             </object>
                         </div>
                         <div class="col-4 px-0 text-left">
-                            <p class="h6 pt-3 m-0" style="line-height: 48px;">ユーザー名</p>
+                            <p class="h6 pt-3 m-0" style="line-height: 48px;">{{ $post->user->profile->name }}</p>
                         </div>
                         <div class="col-4 p-0">
-                            <p class="h3 pt-3 pr-5 m-0" style="line-height: 48px;">30cm</p>
+                            <p class="h3 pt-3 pr-5 m-0" style="line-height: 48px;">{{ $post->size }}cm</p>
                         </div>
                     </div>
                 </li>
             </a>
-            <a class="text-secondary text-decoration-none" href="https://www.google.co.jp/">
-                <li class="border-bottom py-3">
-                    <div class="item-top mx-auto">
-                        <p class="h5 d-inline align-middle mx-2">2021年7月7日</p>
-                        <p class="h5 d-inline align-middle mx-2">07:10</p>
-                        <i class="fas fa-sun fa-2x text-warning align-middle mx-2"></i>
-                    </div>
-                    <div class="item-bottom d-flex justify-content-around">
-                        <div class="col-4 px-0">
-                            <object>
-                                <a href="https://www.youtube.com/" class="mx-auto mt-3 text-decoration-none"
-                                    style="display: block; width: 64px; height: 64px; border-radius: 50%;">
-                                    <div class="bg-secondary text-light py-3 rounded-circle"
-                                        style="width: 64px; height: 64px;">アイコン</div>
-                                </a>
-                            </object>
-                        </div>
-                        <div class="col-4 px-0 text-left">
-                            <p class="h6 pt-3 m-0" style="line-height: 48px;">ユーザー名</p>
-                        </div>
-                        <div class="col-4 p-0">
-                            <p class="h3 pt-3 pr-5 m-0" style="line-height: 48px;">30cm</p>
-                        </div>
-                    </div>
-                </li>
-            </a>
-            <a class="text-secondary text-decoration-none" href="https://www.google.co.jp/">
-                <li class="border-bottom py-3">
-                    <div class="item-top mx-auto">
-                        <p class="h5 d-inline align-middle mx-2">2021年7月7日</p>
-                        <p class="h5 d-inline align-middle mx-2">07:10</p>
-                        <i class="fas fa-sun fa-2x text-warning align-middle mx-2"></i>
-                    </div>
-                    <div class="item-bottom d-flex justify-content-around">
-                        <div class="col-4 px-0">
-                            <object>
-                                <a href="https://www.youtube.com/" class="mx-auto mt-3 text-decoration-none"
-                                    style="display: block; width: 64px; height: 64px; border-radius: 50%;">
-                                    <div class="bg-secondary text-light py-3 rounded-circle"
-                                        style="width: 64px; height: 64px;">アイコン</div>
-                                </a>
-                            </object>
-                        </div>
-                        <div class="col-4 px-0 text-left">
-                            <p class="h6 pt-3 m-0" style="line-height: 48px;">ユーザー名</p>
-                        </div>
-                        <div class="col-4 p-0">
-                            <p class="h3 pt-3 pr-5 m-0" style="line-height: 48px;">30cm</p>
-                        </div>
-                    </div>
-                </li>
-            </a>
-            <a class="text-secondary text-decoration-none" href="https://www.google.co.jp/">
-                <li class="border-bottom py-3">
-                    <div class="item-top mx-auto">
-                        <p class="h5 d-inline align-middle mx-2">2021年7月7日</p>
-                        <p class="h5 d-inline align-middle mx-2">07:10</p>
-                        <i class="fas fa-sun fa-2x text-warning align-middle mx-2"></i>
-                    </div>
-                    <div class="item-bottom d-flex justify-content-around">
-                        <div class="col-4 px-0">
-                            <object>
-                                <a href="https://www.youtube.com/" class="mx-auto mt-3 text-decoration-none"
-                                    style="display: block; width: 64px; height: 64px; border-radius: 50%;">
-                                    <div class="bg-secondary text-light py-3 rounded-circle"
-                                        style="width: 64px; height: 64px;">アイコン</div>
-                                </a>
-                            </object>
-                        </div>
-                        <div class="col-4 px-0 text-left">
-                            <p class="h6 pt-3 m-0" style="line-height: 48px;">ユーザー名</p>
-                        </div>
-                        <div class="col-4 p-0">
-                            <p class="h3 pt-3 pr-5 m-0" style="line-height: 48px;">30cm</p>
-                        </div>
-                    </div>
-                </li>
-            </a>
-            <a class="text-secondary text-decoration-none" href="https://www.google.co.jp/">
-                <li class="border-bottom py-3">
-                    <div class="item-top mx-auto">
-                        <p class="h5 d-inline align-middle mx-2">2021年7月7日</p>
-                        <p class="h5 d-inline align-middle mx-2">07:10</p>
-                        <i class="fas fa-sun fa-2x text-warning align-middle mx-2"></i>
-                    </div>
-                    <div class="item-bottom d-flex justify-content-around">
-                        <div class="col-4 px-0">
-                            <object>
-                                <a href="https://www.youtube.com/" class="mx-auto mt-3 text-decoration-none"
-                                    style="display: block; width: 64px; height: 64px; border-radius: 50%;">
-                                    <div class="bg-secondary text-light py-3 rounded-circle"
-                                        style="width: 64px; height: 64px;">アイコン</div>
-                                </a>
-                            </object>
-                        </div>
-                        <div class="col-4 px-0 text-left">
-                            <p class="h6 pt-3 m-0" style="line-height: 48px;">ユーザー名</p>
-                        </div>
-                        <div class="col-4 p-0">
-                            <p class="h3 pt-3 pr-5 m-0" style="line-height: 48px;">30cm</p>
-                        </div>
-                    </div>
-                </li>
-            </a>
+            @endforeach
         </ul>
+        @else
+        <p>釣果記録がありません</p>
+        @endif
     </div>
     <!-- nav-bar -->
     <footer class="fixed-bottom bg-light border d-flex justify-content-around">
         <div class="nav-item col-4">
-            <a class="h-100" style="display: block" href="#"><i class="fas fa-user fa-2x"
-                    style="line-height: 60px"></i></a>
+            <a class="h-100" style="display: block" href="{{ route('profile_detail', ['id'=>Auth::id()]) }}">
+                <i class="fas fa-user fa-2x" style="line-height: 60px"></i>
+            </a>
         </div>
         <div class="nav-item col-4">
-            <a class="h-100" style="display: block" href="#"><i class="fas fa-map-marked fa-2x"
-                    style="line-height: 60px"></i></a>
+            <a class="h-100" style="display: block" href="{{ action('ArticleController@map') }}">
+                <i class="fas fa-map-marked fa-2x" style="line-height: 60px"></i>
+            </a>
         </div>
         <div class="nav-item col-4">
-            <a class="h-100" style="display: block" href="#"><i class="fas fa-clipboard-list fa-2x"
-                    style="line-height: 60px"></i></a>
+            <a class="h-100" style="display: block" href="#">
+            <i class="fas fa-clipboard-list fa-2x" style="line-height: 60px"></i>
+            </a>
         </div>
     </footer>
     <script src="{{ secure_asset('js/jquery.js') }}" defer></script>

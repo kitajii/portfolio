@@ -42,9 +42,11 @@ class ArticleController extends Controller
         return redirect('article/list');
     }
 
-    public function list()
+    public function list(Request $request)
     {
-        return view('article.list');
+        $posts = Article::all();
+        
+        return view('article.list', ['posts' => $posts]);
     }
     
     public function seach()

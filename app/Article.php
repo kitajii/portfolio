@@ -14,7 +14,7 @@ class Article extends Model
         'weather_id' => 'required', 'size' => 'required'
     ];
     
-    public function users() {
+    public function user() {
         return $this->belongsTo('App\User');
     }
     public function weathers() {

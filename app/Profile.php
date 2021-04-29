@@ -16,7 +16,7 @@ class Profile extends Model
         'experience' => 'required'
     ];
     
-    public function users() {
+    public function user() {
         return $this->belongsTo('App\User');
     }
 }
