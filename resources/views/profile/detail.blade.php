@@ -48,7 +48,7 @@
                     <div class="item-bottom d-flex justify-content-around">
                         <div class="col-4 px-0">
                             <object>
-                                <a href="https://www.youtube.com/" class="mx-auto mt-2 text-decoration-none" style="display: block; width: 64px; height: 64px; border-radius: 50%;">
+                                <a href="{{ route('profile_detail', ['id'=>$post->user_id]) }}" class="mx-auto mt-2 text-decoration-none" style="display: block; width: 64px; height: 64px; border-radius: 50%;">
                                     <image src="{{ asset('storage/images/icon/'. $post->user->profile->icon_path) }}" class="rounded-circle border" style="width: 64px; height: 64px;"></image>
                                 </a>
                             </object>
