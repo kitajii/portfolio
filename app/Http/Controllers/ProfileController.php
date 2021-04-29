@@ -16,7 +16,10 @@ class ProfileController extends Controller
         if(empty($profile)){
             abort(404);
         }
-        return view('profile.detail',['profile' => $profile, 'user' => $user]);
+        //リクエストのuser_idとArticleのuser_idが一致する記事のみを取得
+        $posts = Article::where('user_id', $request->id)->get();
+
+        return view('profile.detail',['profile' => $profile, 'user' => $user, 'posts' => $posts]);
     }
     
     public function edit(Request $request)

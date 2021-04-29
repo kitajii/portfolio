@@ -162,9 +162,9 @@
                     style="width: 200px;" type="submit">絞り込み検索</button>
             </form>
         </div>
-        @if(isset($posts))
+        @if(count($posts) > 0)
+        @foreach($posts as $post)
         <ul class="list-unstyled mb-0">
-            @foreach($posts as $post)
             <a class="text-secondary text-decoration-none" href="https://www.google.co.jp/">
                 <li class="border-bottom py-3">
                     <div class="item-top mx-auto">
@@ -188,8 +188,8 @@
                     </div>
                 </li>
             </a>
-            @endforeach
         </ul>
+        @endforeach
         @else
         <p>釣果記録がありません</p>
         @endif
