@@ -6,37 +6,42 @@
 
 @section('main')
     <div class="main container">
-        <div class="p-3 my-2 bg-white shadow-sm rounded">
-                    <div class="item-top mx-auto">
-                        <p class="h5 d-inline align-middle mx-2">2021年7月7日</p>
-                        <p class="h5 d-inline align-middle mx-2">07:10</p>
-                        <i class="fas fa-sun fa-3x text-warning align-middle mx-2"></i>
-                    </div>
-            <div class="row">
-                <div class="col-5">
-                    <a href="#" class="mx-auto mt-3"
-                        style="display: block; width: 64px; height: 64px; border-radius: 50%;">
-                        <div class="bg-secondary text-light py-3 rounded-circle" style="width: 64px; height: 64px;">アイコン
-                        </div>
+        <div class="p-3 my-2 mx-3 bg-white shadow-sm rounded">
+            <div class="item-top mx-auto mb-3">
+                <p class="d-inline align-middle mx-1">{{ $article->created_at->format('Y年m月d日 H時i分') }}</p>
+                <i class="fas fa-sun fa-2x text-warning align-middle mx-1"></i>
+            </div>
+            <div class="mt-4">
+                <p class="m-0">投稿ユーザー</p>
+            <div class="d-flex justify-content-center bg-light shadow-sm">
+                <div class="mt-3 mr-4 pb-3">
+                    <a href="{{ route('profile_detail', ['id'=>$article->user_id]) }}" class="text-decoration-none text-right" style="display: block; width: 64px; height: 64px; border-radius: 50%;">
+                        <image src="{{ asset('storage/images/icon/'. $article->user->profile->icon_path) }}" class="rounded-circle border" style="width: 64px; height: 64px;"></image>
                     </a>
                 </div>
-                <div class="col-7">
-                    <p class="h5 pt-4 m-0 text-left">ユーザー名</p>
-                    <p class="pt-1 m-0 text-left">釣り歴5年</p>
+                <div class="ml-4">
+                    <p class="h5 mt-4 text-left">{{ $article->user->profile->name }}</p>
+                    <p class="my-1 text-left">釣り歴：{{ $article->user->profile->experience }}年</p>
                 </div>
-                <p class="h5 pt-4 my-0 mx-auto">サイズ：30cm</p>
             </div>
-            <div class="my-3">
-                <div class="bg-secondary mx-auto text-light py-5" style="width: 100%; height: 180px;">写真</div>
+        </div>
+
+            <div class="mt-4">
+                <p class="m-0">サイズ：{{ $article->size }}cm</p>
+                <image src="{{ asset('storage/images/image/'. $article->image_path) }}" class="mx-auto shadow" style="width: 100%;"></image>
             </div>
+            <p class="mt-2 text-left">{{ $article->comment }}</p>
             <div class="my-3">
                 <p class="my-0">ポイント</p>
-                <div class="bg-secondary mx-auto text-light py-5" style="width: 100%; height: 100px;">地図</div>
+                <div id="map" class="bg-secondary mx-auto text-light py-5" style="width: 100%; height: 100px;">地図</div>
             </div>
-            <div class="text-left">
-                <p>コメントコメントコメントコメントコメントコメントコメントコメントコメント</p>
+            @if(($user->id) == ($article->user_id))
+            <div class="text-right">
+                <a class="btn btn-outline-primary btn-sm px-4" href="{{ action('ArticleController@edit', ['id'=>$article->]) }}">編集</a>
+                &nbsp;
+                <a class="btn btn-outline-danger btn-sm px-4" href="#">削除</a>
             </div>
-            <div class="text-right"><a href="#">編集</a>&nbsp;/&nbsp;<a href="#">削除</a></div>
+            @endif
         </div>
     </div>
 @endsection('main')

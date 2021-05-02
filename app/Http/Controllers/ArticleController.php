@@ -54,9 +54,14 @@ class ArticleController extends Controller
         return view('article.list');
     }
     
-    public function detail()
+    public function detail(Request $request)
     {
-        return view('article.detail');
+        $user = Auth::user();
+        $article = Article::find($request->id);
+        if(empty($article)){
+            abort(404);
+        }
+        return view('article.detail', ['article' => $article,'user'=>$user]);
     }
     
     public function edit()

@@ -20,7 +20,7 @@ Route::group(['middleware'=>'auth'], function() {
     Route::post('article/list','ArticleController@create');
     Route::get('article/list','ArticleController@list');
     // Route::get('article/list','ArticleController@search');
-    Route::get('article','ArticleController@detail');
+    Route::get('article','ArticleController@detail')->name('article_detail');
     Route::get('article/edit','ArticleController@edit');
     Route::post('article','ArticleController@update');
     // Route::get('article/list','ArticleController@delete');
