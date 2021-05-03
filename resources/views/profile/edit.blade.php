@@ -6,6 +6,7 @@
     <div class="main container">
         <form class="my-2 mx-3" action={{ action('ProfileController@update') }} class="py-1" method="post" enctype="multipart/form-data">
             @csrf
+            @method('patch')
             <div class="form-group p-3 my-2 bg-white shadow-sm rounded">
                 <p class="h5 mb-2 font-weight-bold">ユーザー名</p>
                 <input class="form-control form-control-sm d-inline" type="text" name="name" style="width:200px" value="{{ $profile->name }}" required>

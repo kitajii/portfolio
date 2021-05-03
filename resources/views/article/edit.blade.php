@@ -6,6 +6,7 @@
     <div class="main container">
         <form class="my-2 mx-3" action="{{ action('ArticleController@update') }}" method="post" enctype="multipart/form-data">
             @csrf
+            @method('patch')
             <div class="form-group p-3 my-2 bg-white shadow-sm rounded">
                 <p class="h5 mb-2 font-weight-bold">天気</p>
                 <div class="form-check form-check-inline mx-3">
