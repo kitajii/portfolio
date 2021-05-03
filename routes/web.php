@@ -23,7 +23,7 @@ Route::group(['middleware'=>'auth'], function() {
     Route::get('article','ArticleController@detail')->name('article_detail');
     Route::get('article/edit','ArticleController@edit');
     Route::patch('article','ArticleController@update');
-    // Route::get('article/list','ArticleController@delete');
+    Route::delete('article/list','ArticleController@delete');
     Route::get('article/point','ArticleController@point');
 
     Route::get('profile','ProfileController@detail')->name('profile_detail');

@@ -2,8 +2,6 @@
 
 @section('title','釣果詳細')
 
-
-
 @section('main')
     <div class="main container">
         <div class="p-3 my-2 mx-3 bg-white shadow-sm rounded">
@@ -46,7 +44,11 @@
             <div class="text-right">
                 <a class="btn btn-outline-primary btn-sm px-4" href="{{ action('ArticleController@edit', ['id'=>$article->id]) }}">編集</a>
                 &nbsp;
-                <a class="btn btn-outline-danger btn-sm px-4" href="#">削除</a>
+                <form class="d-inline" action="{{ action('ArticleController@delete', ['id'=>$article->id]) }}" method="post">
+                @method('delete')
+                @csrf
+                <input type="submit" class="btn btn-outline-danger btn-sm px-4" value="削除">
+                </form>
             </div>
             @endif
         </div>

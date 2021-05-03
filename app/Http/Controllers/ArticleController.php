@@ -91,9 +91,11 @@ class ArticleController extends Controller
         return redirect(route('article_detail', ['id'=>$article->user_id]));
     }
     
-    public function delete()
+    public function delete(Request $request)
     {
-        return view('article.list');
+        $article = Article::find($request->id);
+        $article->delete();
+        return redirect('article/list');
     }
     
     public function point()
