@@ -69,9 +69,26 @@ class ArticleController extends Controller
         $article = Article::find($request->id);
         return view('article.edit', ['article' => $article]);
     }
-    public function update()
+    public function update(Request $request)
     {
-        return redirect('article/detail');
+        $user = Auth::user();
+        $this->validate($request, Article::$rules);
+        $article = Article::find($request->id);
+        $new_article = $request->all();
+        
+        if (isset($new_article['image_path'])) {
+            $path = $request->file('image_path')->store('public/images/image');
+            $article->image_path = basename($path);
+        } else {
+            $article->image_path = $article->image_path;
+        }
+
+        unset($new_article['image_path']);
+        unset($new_article['_token']);
+
+        $article->fill($new_article)->save();
+        
+        return view('article.detail', ['article' => $article ,'user'=>$user]);
     }
     
     public function delete()

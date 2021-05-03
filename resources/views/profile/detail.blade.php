@@ -42,7 +42,7 @@
             <a class="text-secondary text-decoration-none" href="{{ route('article_detail', ['id'=>$article->id]) }}">
                 <li class="border-bottom py-3">
                     <div class="item-top mx-auto">
-                        <p class="h5 d-inline align-middle mx-2">{{ $article->created_at->format('Y年m月d日 H時i分') }}</p>
+                        <p class="d-inline align-middle mx-2">{{ $article->created_at->format('Y年m月d日 H時i分') }}</p>
                         @if($article->weather_id == 1)
                         <i class="fas fa-sun fa-2x text-warning align-middle mx-2"></i>
                         @elseif($article->weather_id == 2)

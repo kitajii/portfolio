@@ -4,9 +4,8 @@
 
 @section('main')
     <div class="main container">
-        <form class="my-2 mx-3" action="{{ action('ArticleController@edit') }}" method="post" enctype="multipart/form-data">
+        <form class="my-2 mx-3" action="{{ action('ArticleController@update') }}" method="post" enctype="multipart/form-data">
             @csrf
-            @method('patch')
             <div class="form-group p-3 my-2 bg-white shadow-sm rounded">
                 <p class="h5 mb-2 font-weight-bold">天気</p>
                 <div class="form-check form-check-inline mx-3">
@@ -43,7 +42,7 @@
                 <p class="h5 mb-2 font-weight-bold">コメント</p>
                 <textarea class="form-control" style="resize:none" name="comment" id="comment" rows="3">{{ $article->comment }}</textarea>
             </div>
-            <input type="hidden" name="user_id" value="{{ $article->id }}">
+            <input type="hidden" name="id" value="{{ $article->id }}">
             <button type="submit" class="btn btn-primary btn-block font-weight-bold my-3 mx-auto" style="width: 200px;">更新する</button>
         </form>
     </div>
