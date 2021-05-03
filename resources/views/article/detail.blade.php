@@ -9,7 +9,14 @@
         <div class="p-3 my-2 mx-3 bg-white shadow-sm rounded">
             <div class="item-top mx-auto mb-3">
                 <p class="d-inline align-middle mx-1">{{ $article->created_at->format('Y年m月d日 H時i分') }}</p>
+                @if($article->weather_id == 1)
                 <i class="fas fa-sun fa-2x text-warning align-middle mx-1"></i>
+                @elseif($article->weather_id == 2)
+                <i class="fas fa-cloud fa-2x text-secondary align-middle mx-1"></i>
+                @elseif($article->weather_id == 3)
+                <i class="fas fa-umbrella fa-2x text-primary align-middle mx-1"></i>
+                @else
+                @endif
             </div>
             <div class="mt-4">
                 <p class="m-0">投稿ユーザー</p>
@@ -37,7 +44,7 @@
             </div>
             @if(($user->id) == ($article->user_id))
             <div class="text-right">
-                <a class="btn btn-outline-primary btn-sm px-4" href="{{ action('ArticleController@edit', ['id'=>$article->]) }}">編集</a>
+                <a class="btn btn-outline-primary btn-sm px-4" href="{{ action('ArticleController@edit', ['id'=>$article->id]) }}">編集</a>
                 &nbsp;
                 <a class="btn btn-outline-danger btn-sm px-4" href="#">削除</a>
             </div>

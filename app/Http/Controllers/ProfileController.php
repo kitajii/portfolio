@@ -17,9 +17,9 @@ class ProfileController extends Controller
             abort(404);
         }
         //リクエストのuser_idとArticleのuser_idが一致する記事のみを取得
-        $posts = Article::where('user_id', $request->id)->get()->sortByDesc('created_at');
+        $articles = Article::where('user_id', $request->id)->get()->sortByDesc('created_at');
 
-        return view('profile.detail',['profile' => $profile, 'user' => $user, 'posts' => $posts]);
+        return view('profile.detail',['profile' => $profile, 'user' => $user, 'articles' => $articles]);
     }
     
     public function edit(Request $request)

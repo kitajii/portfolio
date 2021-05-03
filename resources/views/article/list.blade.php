@@ -169,7 +169,14 @@
                 <li class="border-bottom py-3">
                     <div class="item-top mx-auto">
                         <p class="h5 d-inline align-middle mx-2">{{ $article->created_at->format('Y年m月d日 H時i分') }}</p>
-                        <i class="fas fa-sun fa-2x text-warning align-middle mx-2"></i>
+                            @if($article->weather_id == 1)
+                            <i class="fas fa-sun fa-2x text-warning align-middle mx-2"></i>
+                            @elseif($article->weather_id == 2)
+                            <i class="fas fa-cloud fa-2x text-secondary align-middle mx-2"></i>
+                            @elseif($article->weather_id == 3)
+                            <i class="fas fa-umbrella fa-2x text-primary align-middle mx-2"></i>
+                            @else
+                            @endif
                     </div>
                     <div class="item-bottom d-flex justify-content-around">
                         <div class="col-4 px-0">
