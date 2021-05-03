@@ -88,7 +88,7 @@ class ArticleController extends Controller
 
         $article->fill($new_article)->save();
         
-        return view('article.detail', ['article' => $article ,'user'=>$user]);
+        return redirect(route('article_detail', ['id'=>$article->user_id]));
     }
     
     public function delete()
