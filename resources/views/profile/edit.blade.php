@@ -4,7 +4,7 @@
 
 @section('main')
     <div class="main container">
-        <form action={{ action('ProfileController@update') }} class="py-1" method="post" enctype="multipart/form-data">
+        <form class="my-2 mx-3" action={{ action('ProfileController@update') }} class="py-1" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group p-3 my-2 bg-white shadow-sm rounded">
                 <p class="h5 mb-2 font-weight-bold">ユーザー名</p>

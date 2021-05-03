@@ -39,7 +39,7 @@
         @if(count($articles) > 0)
         @foreach($articles as $article)
         <ul class="list-unstyled mb-0">
-            <a class="text-secondary text-decoration-none" href="https://www.google.co.jp/">
+            <a class="text-secondary text-decoration-none" href="{{ route('article_detail', ['id'=>$article->id]) }}">
                 <li class="border-bottom py-3">
                     <div class="item-top mx-auto">
                         <p class="h5 d-inline align-middle mx-2">{{ $article->created_at->format('Y年m月d日 H時i分') }}</p>
