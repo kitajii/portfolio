@@ -27,135 +27,34 @@
     <!-- main -->
     <div class="main">
         <!-- 絞り込み -->
-        <div id="narrow-down" class="narrow-down bg-primary text-white text-center fixed-top"
-            style="z-index: 10; margin-top: 56px; height: 340px;">
-            <form class="mx-auto" action="#">
-                <div class="period p-2 border-top">
+        <div id="narrow-down" class="narrow-down bg-primary text-white text-center fixed-top" style="z-index: 10; margin-top: 56px; height: 360px;">
+            <form class="mx-auto" action="{{ action('ArticleController@list') }}">
+                <div class="p-2 border-top">
                     <p class="mb-1">期間</p>
-                    <select class="form-select form-select-sm" aria-label="from-year">
-                        <option selected>-</option>
-                        <option value="2021">2021</option>
-                        <option value="2022">2022</option>
-                        <option value="2023">2023</option>
-                    </select>
-                    <span>/</span>
-                    <select class="form-select form-select-sm" aria-label="from-month">
-                        <option selected>-</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                    </select>
+                    <input type="date" name="from_date" style="font-size:13px;">
                     <span>〜</span>
-                    <select class="form-select form-select-sm" aria-label="to-year">
-                        <option selected>-</option>
-                        <option value="2021">2021</option>
-                        <option value="2022">2022</option>
-                        <option value="2023">2023</option>
-                    </select>
-                    <span>/</span>
-                    <select class="form-select form-select-sm" aria-label="to-month">
-                        <option selected>-</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                    </select>
+                    <input type="date" name="until_date" style="font-size:13px;">
                 </div>
-                <div class="time p-2 border-top">
+                <div class="p-2 border-top">
                     <p class="mb-1">時間帯</p>
-                    <select class="form-select form-select-sm" aria-label="from-time">
-                        <option selected>-</option>
-                        <option value="0">0:00</option>
-                        <option value="1">1:00</option>
-                        <option value="2">2:00</option>
-                        <option value="3">3:00</option>
-                        <option value="4">4:00</option>
-                        <option value="5">5:00</option>
-                        <option value="6">6:00</option>
-                        <option value="7">7:00</option>
-                        <option value="8">8:00</option>
-                        <option value="9">9:00</option>
-                        <option value="10">10:00</option>
-                        <option value="11">11:00</option>
-                        <option value="12">12:00</option>
-                        <option value="13">13:00</option>
-                        <option value="14">14:00</option>
-                        <option value="15">15:00</option>
-                        <option value="16">16:00</option>
-                        <option value="17">17:00</option>
-                        <option value="18">18:00</option>
-                        <option value="19">19:00</option>
-                        <option value="20">20:00</option>
-                        <option value="21">21:00</option>
-                        <option value="22">22:00</option>
-                        <option value="23">23:00</option>
-                    </select>
+                    <input type="time" name="from_time">
                     <span>〜</span>
-                    <select class="form-select form-select-sm" aria-label="from-time">
-                        <option selected>-</option>
-                        <option value="0">0:00</option>
-                        <option value="1">1:00</option>
-                        <option value="2">2:00</option>
-                        <option value="3">3:00</option>
-                        <option value="4">4:00</option>
-                        <option value="5">5:00</option>
-                        <option value="6">6:00</option>
-                        <option value="7">7:00</option>
-                        <option value="8">8:00</option>
-                        <option value="9">9:00</option>
-                        <option value="10">10:00</option>
-                        <option value="11">11:00</option>
-                        <option value="12">12:00</option>
-                        <option value="13">13:00</option>
-                        <option value="14">14:00</option>
-                        <option value="15">15:00</option>
-                        <option value="16">16:00</option>
-                        <option value="17">17:00</option>
-                        <option value="18">18:00</option>
-                        <option value="19">19:00</option>
-                        <option value="20">20:00</option>
-                        <option value="21">21:00</option>
-                        <option value="22">22:00</option>
-                        <option value="23">23:00</option>
-                    </select>
+                    <input type="time" name="until_time">
                 </div>
-                <div class="weather p-2 border-top">
+                <div class="p-2 border-top">
                     <p class="mb-1">天気</p>
-                    <select class="form-select form-select-sm" aria-label="weather">
-                        <option selected>-</option>
-                        <option value="2021">晴れ</option>
-                        <option value="2022">曇り</option>
-                        <option value="2023">雨</option>
+                    <select class="form-select form-select-sm" name="weather_id">
+                        <option value="" selected>-</option>
+                        <option value="1">晴れ</option>
+                        <option value="2">曇り</option>
+                        <option value="3">雨</option>
                     </select>
                 </div>
-                <div class="size p-2 border-top">
+                <div class="p-2 border-top">
                     <p class="mb-1">サイズ</p>
-                    <select class="form-select form-select-sm" aria-label="from-size">
-                        <option selected>-</option>
-                        <option value="1">〜19</option>
-                        <option value="2">20〜29</option>
-                        <option value="3">30〜39</option>
-                        <option value="4">40〜49</option>
-                        <option value="5">50〜59</option>
-                        <option value="6">60〜</option>
-                    </select>
+                    <input type="number" name="from_size" style="width:50px">
+                    <span>〜</span>
+                    <input type="number" name="to_size" style="width:50px">
                     <span>㎝</span>
                 </div>
                 <button class="btn btn-light btn-block btn-sm font-weight-bold my-3 mx-auto text-secondary"
