@@ -1,6 +1,9 @@
 @extends('layouts.layout')
 
 @section('title','釣果入力')
+@section('head-script')
+    <script src="{{ secure_asset('js/jquery.js') }}" defer></script>
+@endsection('head-script')
 
 @section('main')
     <div class="main container">

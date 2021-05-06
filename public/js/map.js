@@ -81,45 +81,30 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/jquery.js":
-/*!********************************!*\
-  !*** ./resources/js/jquery.js ***!
-  \********************************/
+/***/ "./resources/js/map.js":
+/*!*****************************!*\
+  !*** ./resources/js/map.js ***!
+  \*****************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$(function () {
-  $('#open-search').click(function () {
-    $('#open-search').css('display', 'none');
-    $('#close-search').css('display', 'inline');
-    $('#narrow-down').slideDown();
-  });
-  $('#close-search').click(function () {
-    $('#close-search').css('display', 'none');
-    $('#open-search').css('display', 'inline');
-    $('#narrow-down').slideUp();
-  });
-  $('#file_select').on('change', function () {
-    var file = $(this).prop('files')[0];
-    $('#file_name').text(file.name);
-  });
-});
+
 
 /***/ }),
 
-/***/ 1:
-/*!**************************************!*\
-  !*** multi ./resources/js/jquery.js ***!
-  \**************************************/
+/***/ 2:
+/*!***********************************!*\
+  !*** multi ./resources/js/map.js ***!
+  \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/ec2-user/environment/portfolio/resources/js/jquery.js */"./resources/js/jquery.js");
+module.exports = __webpack_require__(/*! /home/ec2-user/environment/portfolio/resources/js/map.js */"./resources/js/map.js");
 
 
 /***/ })

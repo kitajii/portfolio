@@ -2,6 +2,10 @@
 
 @section('title','釣果編集')
 
+@section('head-script')
+    <script src="{{ secure_asset('js/jquery.js') }}" defer></script>
+@endsection('head-script')
+
 @section('main')
     <div class="main container">
         <form class="my-2 mx-3" action="{{ action('ArticleController@update') }}" method="post" enctype="multipart/form-data">
@@ -48,6 +52,3 @@
         </form>
     </div>
 @endsection('main')
-@section('foot-script')
-    <script src="{{ secure_asset('js/jquery.js') }}" defer></script>
-@endsection('foot-script')

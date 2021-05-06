@@ -6,7 +6,6 @@
 @section('head-script')
     <script>
     // 現在地取得処理
-    
     function initMap() {
         // Geolocation APIに対応している
         if (navigator.geolocation) {
@@ -65,7 +64,6 @@
         }
     }
   </script>
-
 @endsection('head-script')
 
 @section('main')
