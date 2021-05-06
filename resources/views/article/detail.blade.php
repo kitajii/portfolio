@@ -26,7 +26,6 @@
                                 center : pointLatLng,  // 緯度・経度
                                 zoomControl: false,  // 拡大縮小ボタン非表示
                                 streetViewControl: false, //ストリートビュー非表示
-                                scrollwheel: false, //マウスホイール無効
                                 mapTypeControl: false,  //マップタイプ切り替えボタン非表示
                                 fullscreenControl: false  //全画面ボタン非表示
                             };
