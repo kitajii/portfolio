@@ -123,9 +123,13 @@ class ArticleController extends Controller
         return redirect('article/list');
     }
     
-    public function point()
+    public function point(Request $request)
     {
-        return view('article.point');
+        $article = Article::find($request->id);
+        if(empty($article)){
+            abort(404);
+        }
+        return view('article.point', ['article' => $article]);
     }
     
     private function isNullOrEmpty($val) {

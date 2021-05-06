@@ -14,18 +14,18 @@
                 // 取得成功した場合
                 function(position) {
                     // 緯度・経度を変数に格納
-                    var mapLat = position.coords.latitude;
-                    var mapLng = position.coords.longitude;
-                    var mapLatLng = new google.maps.LatLng(mapLat, mapLng);
+                    var myLat = position.coords.latitude;
+                    var myLng = position.coords.longitude;
+                    var myLatLng = new google.maps.LatLng(myLat, myLng);
                     // formのvalueに緯度・経度を渡す
-                    document.getElementById('lat').value = mapLat;
-                    document.getElementById('lng').value = mapLng;
+                    document.getElementById('lat').value = myLat;
+                    document.getElementById('lng').value = myLng;
                     // 初回のみマップ作成
                     if(!map) {
                         // マップオプションを変数に格納
                         var mapOptions = {
                             zoom : 15,          // 拡大倍率
-                            center : mapLatLng  // 緯度・経度
+                            center : myLatLng  // 緯度・経度
                         };
                         // マップオブジェクト作成
                         var map = new google.maps.Map(
@@ -36,7 +36,7 @@
                     //　マップにマーカーを表示する
                     var marker = new google.maps.Marker({
                         map : map,             // 対象の地図オブジェクト
-                        position : mapLatLng   // 緯度・経度
+                        position : myLatLng   // 緯度・経度
                     });
                 },
                 // 取得失敗した場合
@@ -68,7 +68,7 @@
 
 @section('main')
     <div class="map-container">
-        <div id="map">
+        <div id="map" class="map">
         </div>
         <form id="latlng" method="post" action="{{ action('ArticleController@add') }}">
             @csrf
