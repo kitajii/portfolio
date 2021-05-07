@@ -103,9 +103,13 @@
             </div>
             <div class="mt-4">
                 <p class="m-0">サイズ：{{ $article->size }}cm</p>
+                @if(!empty($article->image_path))
                 <image src="{{ asset('storage/images/image/'. $article->image_path) }}" class="mx-auto shadow" style="width: 100%;"></image>
+                @endif
+                @if(!empty($article->comment))
+                <p class="mt-2 text-left">{{ $article->comment }}</p>
+                @endif
             </div>
-            <p class="mt-2 text-left">{{ $article->comment }}</p>
             <div class="my-3">
                 <p class="my-0">ポイント（クリックで拡大表示）</p>
                 <a href="{{ action('ArticleController@point', ['id'=>$article->id]) }}">

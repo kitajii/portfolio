@@ -33,10 +33,11 @@
                             mapOptions         // マップオプション
                         );
                     }
-                    //　マップにマーカーを表示する
-                    var marker = new google.maps.Marker({
+                    // 現在地にマーカーを表示する
+                    var currentMarker = new google.maps.Marker({
                         map : map,             // 対象の地図オブジェクト
-                        position : myLatLng   // 緯度・経度
+                        position : myLatLng,   // 緯度・経度
+                        icon : "https://maps.google.com/mapfiles/ms/icons/green-dot.png"
                     });
                 },
                 // 取得失敗した場合

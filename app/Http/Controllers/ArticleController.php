@@ -14,7 +14,8 @@ class ArticleController extends Controller
     
     public function map(Request $request)
     {
-        return view('map');
+        $articles = Article::all()->sortByDesc('created_at');
+        return view('map', ['articles' => $articles]);
     }
     
     public function add(Request $request)

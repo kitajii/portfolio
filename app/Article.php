@@ -11,7 +11,10 @@ class Article extends Model
     ];
 
     public static $rules = [
-        'weather_id' => 'required', 'size' => 'required'
+        'latitude' => 'required',
+        'longitude' => 'required',
+        'weather_id' => 'required',
+        'size' => 'required'
     ];
     
     public function user() {
