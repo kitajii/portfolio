@@ -35,8 +35,10 @@
             <div class="form-group p-3 my-2 bg-white shadow-sm rounded">
                 <p class="h5 mb-2 font-weight-bold">写真</p>
                 <div class="mb-4">
-                <image src="{{ asset('storage/images/image/'. $article->image_path) }}" class="mx-auto shadow" style="width: 128px;"></image>
-                <p class="m-0">現在の投稿写真</p>
+                    @if(!empty($article->image_path))
+                    <image src="{{ asset('storage/images/image/'. $article->image_path) }}" class="mx-auto shadow" style="width: 128px;"></image>
+                    <p class="m-0">現在の投稿写真</p>
+                    @endif
                 </div>
                 <label class="btn btn-outline-primary btn-sm">
                     <input id="file_select" type="file" name="image_path" style="display:none;">写真を選択
