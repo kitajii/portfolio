@@ -20,8 +20,8 @@ class CreateArticlesTable extends Migration
             $table->string('image_path')->nullable();;
             $table->integer('size');
             $table->string('comment')->nullable();
-            $table->float('latitude');
-            $table->float('longitude');
+            $table->float('latitude',7,5);
+            $table->float('longitude',8,5);
             $table->timestamps();
         });
     }
