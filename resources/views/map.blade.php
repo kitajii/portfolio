@@ -17,29 +17,31 @@
                     var myLat = position.coords.latitude;
                     var myLng = position.coords.longitude;
                     var myLatLng = new google.maps.LatLng(myLat, myLng);
+                    
                     // formのvalueに緯度・経度を渡す
                     document.getElementById('lat').value = myLat;
                     document.getElementById('lng').value = myLng;
+                    
                     // 初回のみマップ作成
                     if(!map) {
                         // マップオプションを変数に格納
                         var mapOptions = {
-                            zoom : 15,          // 拡大倍率
-                            center : myLatLng,  // 緯度・経度
-                        	restriction: {      // 表示範囲の制限(琵琶湖周辺のみ)
+                            zoom : 15,              // 拡大倍率
+                            center : myLatLng,      // 緯度・経度
+                        	restriction: {          // 表示範囲の制限(琵琶湖周辺のみ)
                         		latLngBounds: {
-                        			north: 35.6,
-                        			south: 34.9,
-                        			west: 135.8,
-                        			east: 136.4
+                        			north : 35.6,
+                        			south : 34.9,
+                        			west : 135.8,
+                        			east : 136.4
                         		},
                         		strictBounds: true
                         	}
                         };
                         // マップオブジェクト作成
                         var map = new google.maps.Map(
-                            document.getElementById('map'), // マップを表示する要素
-                            mapOptions         // マップオプション
+                            document.getElementById('map'),     // マップを表示する要素
+                            mapOptions                          // マップオプション
                         );
                     }
                     // 現在地にマーカーを表示する
@@ -48,6 +50,16 @@
                         position : myLatLng,   // 緯度・経度
                         icon : "https://maps.google.com/mapfiles/ms/icons/green-dot.png"
                     });
+                    
+                    var articleData = {{ $article_data }};
+                    
+                    for (var i = 0; i < articleData.length; i++) {
+                        articleLatLng = new google.maps.LatLng({lat: articleData[i]['lat'], lng: articleData[i]['lng']});
+                            var articleMarker = new google.maps.Marker({
+                            map : map,             // 対象の地図オブジェクト
+                            position : articleLatLng   // 緯度・経度
+                        });
+                    }
                 },
                 // 取得失敗した場合
                 function(error) {

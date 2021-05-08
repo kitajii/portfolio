@@ -14,8 +14,18 @@ class ArticleController extends Controller
     
     public function map(Request $request)
     {
-        $articles = Article::all()->sortByDesc('created_at');
-        return view('map', ['articles' => $articles]);
+        $articles = Article::all();
+
+        $val = '[';
+        foreach($articles as $article) {
+        //   $val .= sprintf("{name: '%s', created_at: '%s', lat: %.5f, lng: %.5f},", $article->user->name, $article->created_at, $article->latitude, $article->longitude);
+          $val .= sprintf("{lat: %.5f, lng: %.5f},", $article->latitude, $article->longitude);
+        }
+        $val .= ']';
+        
+        // dd($val);
+
+        return view('map', ['article_data' => $val]);
     }
     
     public function add(Request $request)
