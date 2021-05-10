@@ -62,7 +62,8 @@
                     for (var i = 0; i < articleData.length; i++) {
                     
                     	var point = new google.maps.LatLng({lat: articleData[i]['lat'], lng: articleData[i]['lng']});
-                    	var marker = create_maker(point, `<a href="#"><p>${articleData[i]['created_at']}</p><p class="">${articleData[i]['name']}</p></a>`);
+                    	
+                    	var marker = create_maker(point, `<a href="${articleData[i]['url']}"><img src="${articleData[i]['icon']}" class="rounded-circle border" style="width: 64px; height: 64px;"></image><p>${articleData[i]['created_at']}</p><p class="">${articleData[i]['name']}</p></a>`);
                     
                         // var articleMarker = new google.maps.Marker({
                             // map : map,             // 対象の地図オブジェクト
