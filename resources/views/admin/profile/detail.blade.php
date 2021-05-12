@@ -1,7 +1,7 @@
 @extends('layouts.admin.layout')
 
 @section('title')
-{{$profile->name}}のページ
+{{$profile->name}}のページ（管理者）
 @endsection('title')
 
 @section('main')

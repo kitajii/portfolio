@@ -65,7 +65,7 @@ class ArticleController extends Controller
         }else{
             $articles = Article::all()->sortByDesc('created_at'); //全記事をリスト表示
         }
-        return view('article.list', ['articles' => $articles]);
+        return view('admin.article.list', ['articles' => $articles]);
     }
     
     public function detail(Request $request)

@@ -52,7 +52,6 @@
             <input type="hidden" name="id" value="{{ $article->id }}">
             <input type="hidden" name="latitude" value="{{ $article->latitude }}">
             <input type="hidden" name="longitude" value="{{ $article->longitude }}">
-
             <button type="submit" class="btn btn-primary btn-block font-weight-bold my-3 mx-auto" style="width: 200px;">更新する</button>
         </form>
     </div>
