@@ -19,7 +19,7 @@
         <div class="main container">
             <h1 class="pt-5 font-weight-bold" style="color:dodgerblue;"><i class="fas fa-fish"></i> 釣りコミ</h1>
             <div class="container">
-                <form class="form-signin py-3" method="POST" action="{{ route('admin.login') }}">
+                <form class="form-signin py-3" method="POST" action="{{ route('admin_login') }}">
                     @csrf
                 <input type="email" id="email" class="form-control @error('name') is-invalid @enderror my-3" name="email" value="{{ old('email') }}" placeholder="メールアドレス" required autofocus>
                             @error('name')

@@ -82,9 +82,9 @@ class ArticleController extends Controller
         $article = Article::find($request->id);
         return view('admin.article.edit', ['article' => $article]);
     }
+    
     public function update(Request $request)
     {
-        $user = Auth::user();
         $this->validate($request, Article::$rules);
         $article = Article::find($request->id);
         $new_article = $request->all();
@@ -101,7 +101,7 @@ class ArticleController extends Controller
 
         $article->fill($new_article)->save();
         
-        return redirect(route('article_detail', ['id'=>$article->user_id]));
+        return redirect(route('admin_article_detail', ['id' => $article->id]));
     }
     
     public function delete(Request $request)

@@ -130,7 +130,7 @@ class ArticleController extends Controller
 
         $article->fill($new_article)->save();
         
-        return redirect(route('article_detail', ['id'=>$article->user_id]));
+        return redirect(route('article_detail', ['id'=>$article->id]));
     }
     
     public function delete(Request $request)

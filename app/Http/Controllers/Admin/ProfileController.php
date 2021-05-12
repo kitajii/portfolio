@@ -56,7 +56,7 @@ class ProfileController extends Controller
         unset($new_profile['_token']);
 
         $profile->fill($new_profile)->save();
-        
-        return redirect(route('profile_detail',['id'=>$profile->id]));
+    
+        return redirect(route('profile_detail',['id' => $profile->id]));
     }
 }
