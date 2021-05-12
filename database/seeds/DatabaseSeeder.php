@@ -11,6 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(WeathersTableSeeder::class);
+        $this->call([
+            WeathersTableSeeder::class,
+            AdminsTableSeeder::class
+            ]);
     }
 }
