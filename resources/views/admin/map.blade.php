@@ -1,7 +1,7 @@
 
 @extends('layouts.layout')
 
-@section('title','マップ')
+@section('title','マップ（管理者）')
 
 @section('head-script')
     <script>
@@ -20,11 +20,7 @@
                     var myLat = position.coords.latitude;
                     var myLng = position.coords.longitude;
                     var myLatLng = new google.maps.LatLng(myLat, myLng);
-                    
-                    // formのvalueに緯度・経度を渡す
-                    document.getElementById('lat').value = myLat;
-                    document.getElementById('lng').value = myLng;
-                    
+                
                     
                     // 初回のみマップ作成
                     if(!map) {
@@ -129,14 +125,6 @@
     <div class="map-container">
         <div id="map" class="map">
         </div>
-        <form id="latlng" method="post" action="{{ action('ArticleController@add') }}">
-            @csrf
-            <input id="lat" name="lat" type="hidden" value="">
-            <input id="lng" name="lng" type="hidden" value="">
-            <button type="submit" class="btn btn-success shadow-sm border-light font-weight-bold" style="position:fixed; bottom:84px; right:65px;">
-                現在地で釣果を投稿する <i class="fas fa-pen text-light"></i>
-            </button>
-        </form>
     </div>
 @endsection('main')
 
