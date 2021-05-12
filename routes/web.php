@@ -38,15 +38,18 @@ Route::get('/home', 'HomeController@index')->name('home');
 // 管理者画面
 Route::group(['prefix' => 'admin'], function(){
     
-    
     Route::get('map','Admin\ArticleController@map');
     Route::get('article/list','Admin\ArticleController@list');
-    Route::get('article','Admin\ArticleController@detail')->name('admin.article_detail');
+    Route::get('article','Admin\ArticleController@detail')->name('admin.article.detail');
     Route::get('article/edit','Admin\ArticleController@edit');
     Route::patch('article','Admin\ArticleController@update');
     Route::delete('article/list','Admin\ArticleController@delete');
     Route::get('article/point','Admin\ArticleController@point');
-    
+
+    Route::get('mypage','Admin\ProfileController@mypage');
+    Route::get('profile','Admin\ProfileController@detail')->name('admin.profile.detail');
+    Route::get('profile/edit','Admin\ProfileController@edit');
+    Route::patch('profile','Admin\ProfileController@update');
     
     // AdminHome
     Route::get('home', 'Admin\HomeController@index')->name('admin.home');

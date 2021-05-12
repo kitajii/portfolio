@@ -17,7 +17,6 @@ class ArticleController extends Controller
     public function map(Request $request)
     {
         
-        $admin = Auth::guard('admin')->user();
         $articles = Article::all();
         $val = '[';
         foreach($articles as $article) {

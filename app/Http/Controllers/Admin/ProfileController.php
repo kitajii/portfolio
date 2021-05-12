@@ -1,14 +1,22 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Profile;
 use App\Article;
+use App\Http\Controllers\Controller;
 
 class ProfileController extends Controller
 {
+    
+    public function mypage()
+    {
+        $admin = Auth::guard('admin')->user();
+        return view('admin.profile.mypage',['admin' => $admin]);
+    }
+    
     public function detail(Request $request)
     {
         $user = Auth::user();

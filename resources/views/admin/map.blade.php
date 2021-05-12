@@ -1,5 +1,5 @@
 
-@extends('layouts.layout')
+@extends('layouts.admin.layout')
 
 @section('title','マップ（管理者）')
 
