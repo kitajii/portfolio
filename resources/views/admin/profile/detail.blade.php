@@ -26,13 +26,6 @@
                 </div>
                 <p>{{ $profile->introduction }}</p>
             </div>
-            <div class="d-flex justify-content-around">
-                <a class="btn btn-outline-danger btn-sm px-3" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
-                <a class="btn btn-outline-primary btn-sm px-3" href="{{ action('ProfileController@edit', ['id'=> $profile->id]) }}">プロフィール編集</a>
-            </div>
         </div>
         @if(count($articles) > 0)
         @foreach($articles as $article)

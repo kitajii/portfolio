@@ -25,18 +25,17 @@ class ProfileController extends Controller
         }
         //リクエストのuser_idとArticleのuser_idが一致する記事のみを取得
         $articles = Article::where('user_id', $request->id)->get()->sortByDesc('created_at');
-
+        
         return view('admin.profile.detail',['profile' => $profile, 'articles' => $articles]);
     }
     
     public function edit(Request $request)
     {
-        $user = Auth::user();
         $profile = Profile::find($request->id); //idからレコードを取得
         if(empty($profile)){
             abort(404);
         }
-        return view('profile.edit',['profile'=>$profile, 'user'=>$user]);
+        return view('admin.profile.edit',['profile'=>$profile]);
     }
     
     public function update(Request $request)

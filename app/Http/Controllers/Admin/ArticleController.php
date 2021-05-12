@@ -80,7 +80,7 @@ class ArticleController extends Controller
     public function edit(Request $request)
     {
         $article = Article::find($request->id);
-        return view('article.edit', ['article' => $article]);
+        return view('admin.article.edit', ['article' => $article]);
     }
     public function update(Request $request)
     {

@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.admin.layout')
 
 @section('title','釣果詳細（管理者）')
 
@@ -91,7 +91,7 @@
                 <p class="m-0">投稿ユーザー</p>
                 <div class="d-flex justify-content-center bg-light shadow-sm">
                     <div class="mt-3 mr-4 pb-3">
-                        <a href="{{ route('profile_detail', ['id'=>$article->user_id]) }}" class="text-decoration-none text-right" style="display: block; width: 64px; height: 64px; border-radius: 50%;">
+                        <a href="{{ route('admin_profile_detail', ['id'=>$article->user_id]) }}" class="text-decoration-none text-right" style="display: block; width: 64px; height: 64px; border-radius: 50%;">
                             <image src="{{ asset('storage/images/icon/'. $article->user->profile->icon_path) }}" class="rounded-circle border" style="width: 64px; height: 64px;"></image>
                         </a>
                     </div>
@@ -117,9 +117,9 @@
                 </a>
             </div>
             <div class="text-right">
-                <a class="btn btn-outline-primary btn-sm px-4" href="{{ action('ArticleController@edit', ['id'=>$article->id]) }}">編集</a>
+                <a class="btn btn-outline-primary btn-sm px-4" href="{{ action('Admin\ArticleController@edit', ['id'=>$article->id]) }}">編集</a>
                 &nbsp;
-                <form class="d-inline" action="{{ action('ArticleController@delete', ['id'=>$article->id]) }}" method="post">
+                <form class="d-inline" action="{{ action('Admin\ArticleController@delete', ['id'=>$article->id]) }}" method="post">
                     @method('delete')
                     @csrf
                     <input type="submit" class="btn btn-outline-danger btn-sm px-4" value="削除">
