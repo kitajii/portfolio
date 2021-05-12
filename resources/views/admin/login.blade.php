@@ -13,11 +13,11 @@
         <link href="{{ secure_asset('css/style.css') }}" rel="stylesheet">
     </head>
     <body class="text-center bg-light">
-        <div class="header fixed-top p-2 bg-primary text-white">
-            <p class="d-flex align-items-center justify-content-center h5 font-weight-bold my-2">ログイン</p>
+        <div class="header fixed-top p-2 bg-success text-white">
+            <p class="d-flex align-items-center justify-content-center h5 font-weight-bold my-2">管理者ログイン</p>
         </div>
         <div class="main container">
-            <h1 class="pt-5 font-weight-bold" style="color:dodgerblue;"><i class="fas fa-fish"></i> 釣りコミ</h1>
+            <h1 class="pt-5 font-weight-bold text-success" style="color:dodgerblue;"><i class="fas fa-fish text-success"></i> 釣りコミ</h1>
             <div class="container">
                 <form class="form-signin py-3" method="POST" action="{{ route('admin_login') }}">
                     @csrf
@@ -38,7 +38,7 @@
                                 <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('messages.Remember Me') }}
                             </label>
                         </div>
-                    <input type="submit" class="btn btn-primary btn-block font-weight-bold" value="ログイン">
+                    <input type="submit" class="btn btn-success btn-block font-weight-bold" value="ログイン">
                 </form>
             </div>
         </div>

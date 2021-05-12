@@ -19,7 +19,7 @@
     
     <body class="text-center bg-light text-secondary">
         <!-- header -->
-        <header class="fixed-top p-2 bg-primary text-white">
+        <header class="fixed-top p-2 bg-success text-white">
             <p class="d-flex align-items-center justify-content-center h5 font-weight-bold my-2">@yield('title')</p>
         </header>
         
@@ -29,17 +29,17 @@
         <footer class="fixed-bottom bg-light border d-flex justify-content-around">
             <div class="nav-item col-4">
                 <a class="h-100" style="display: block" href="{{ action('Admin\ProfileController@mypage') }}">
-                    <i class="fas fa-user fa-2x" style="line-height: 60px"></i>
+                    <i class="fas fa-user fa-2x text-success" style="line-height: 60px"></i>
                 </a>
             </div>
             <div class="nav-item col-4">
                 <a class="h-100" style="display: block" href="{{ action('Admin\ArticleController@map') }}">
-                    <i class="fas fa-map-marked fa-2x" style="line-height: 60px"></i>
+                    <i class="fas fa-map-marked fa-2x text-success" style="line-height: 60px"></i>
                 </a>
             </div>
             <div class="nav-item col-4">
                 <a class="h-100" style="display: block" href="{{ action('Admin\ArticleController@list') }}">
-                <i class="fas fa-clipboard-list fa-2x" style="line-height: 60px"></i>
+                <i class="fas fa-clipboard-list fa-2x text-success" style="line-height: 60px"></i>
                 </a>
             </div>
         </footer>

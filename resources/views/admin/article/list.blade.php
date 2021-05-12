@@ -16,7 +16,7 @@
 
 <body class="text-center bg-light text-secondary">
     <!-- header -->
-    <header class="fixed-top bg-primary text-white">
+    <header class="fixed-top bg-success text-white">
         <div class="d-flex justify-content-between">
             <div style="width: 50px;"></div>
             <p class="h5 font-weight-bold my-3">釣果一覧（管理者）</p>
@@ -27,7 +27,7 @@
     <!-- main -->
     <div class="main">
         <!-- 絞り込み -->
-        <div id="narrow-down" class="narrow-down bg-primary text-white text-center fixed-top" style="z-index: 10; margin-top: 56px; height: 360px;">
+        <div id="narrow-down" class="narrow-down bg-success text-white text-center fixed-top" style="z-index: 10; margin-top: 56px; height: 360px;">
             <form class="mx-auto" action="{{ action('Admin\ArticleController@list') }}">
                 <div class="p-2 border-top">
                     <p class="mb-1">期間</p>
@@ -104,17 +104,17 @@
     <footer class="fixed-bottom bg-light border d-flex justify-content-around">
         <div class="nav-item col-4">
             <a class="h-100" style="display: block" href="{{ action('Admin\ProfileController@mypage') }}">
-                <i class="fas fa-user fa-2x" style="line-height: 60px"></i>
+                <i class="fas fa-user fa-2x text-success" style="line-height: 60px"></i>
             </a>
         </div>
         <div class="nav-item col-4">
             <a class="h-100" style="display: block" href="{{ action('Admin\ArticleController@map') }}">
-                <i class="fas fa-map-marked fa-2x" style="line-height: 60px"></i>
+                <i class="fas fa-map-marked fa-2x text-success" style="line-height: 60px"></i>
             </a>
         </div>
         <div class="nav-item col-4">
             <a class="h-100" style="display: block" href="{{ action('Admin\ArticleController@list') }}">
-            <i class="fas fa-clipboard-list fa-2x" style="line-height: 60px"></i>
+            <i class="fas fa-clipboard-list fa-2x text-success" style="line-height: 60px"></i>
             </a>
         </div>
     </footer>
