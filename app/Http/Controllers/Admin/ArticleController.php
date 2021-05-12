@@ -21,7 +21,7 @@ class ArticleController extends Controller
         $val = '[';
         foreach($articles as $article) {
             $val .= sprintf("{url: '%s', icon: '%s', name: '%s', created_at: '%s', lat: %.5f, lng: %.5f},",
-                route('article_detail', ['id'=>$article->id]),
+                route('admin_article_detail', ['id'=>$article->id]),
                 asset('storage/images/icon/'. $article->user->profile->icon_path),
                 $article->user->name,
                 $article->created_at->format('Y年m月d日 H時i分'),
@@ -70,12 +70,11 @@ class ArticleController extends Controller
     
     public function detail(Request $request)
     {
-        $user = Auth::user();
         $article = Article::find($request->id);
         if(empty($article)){
             abort(404);
         }
-        return view('article.detail', ['article' => $article,'user'=>$user]);
+        return view('admin.article.detail', ['article' => $article]);
     }
     
     public function edit(Request $request)

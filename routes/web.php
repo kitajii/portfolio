@@ -40,21 +40,21 @@ Route::group(['prefix' => 'admin'], function(){
     
     Route::get('map','Admin\ArticleController@map');
     Route::get('article/list','Admin\ArticleController@list');
-    Route::get('article','Admin\ArticleController@detail')->name('admin.article.detail');
+    Route::get('article','Admin\ArticleController@detail')->name('admin_article_detail');
     Route::get('article/edit','Admin\ArticleController@edit');
     Route::patch('article','Admin\ArticleController@update');
     Route::delete('article/list','Admin\ArticleController@delete');
     Route::get('article/point','Admin\ArticleController@point');
 
     Route::get('mypage','Admin\ProfileController@mypage');
-    Route::get('profile','Admin\ProfileController@detail')->name('admin.profile.detail');
+    Route::get('profile','Admin\ProfileController@detail')->name('admin_profile_detail');
     Route::get('profile/edit','Admin\ProfileController@edit');
     Route::patch('profile','Admin\ProfileController@update');
     
     // AdminHome
-    Route::get('home', 'Admin\HomeController@index')->name('admin.home');
+    Route::get('home', 'Admin\HomeController@index')->name('admin_home');
     //login&logout
-    Route::get('login', 'Admin\LoginController@showLoginForm')->name('admin.login');
-    Route::post('login', 'Admin\LoginController@login')->name('admin.login');
-    Route::post('logout', 'Admin\LoginController@logout')->name('admin.logout');
+    Route::get('login', 'Admin\LoginController@showLoginForm')->name('admin_login');
+    Route::post('login', 'Admin\LoginController@login')->name('admin_login');
+    Route::post('logout', 'Admin\LoginController@logout')->name('admin_logout');
 });
