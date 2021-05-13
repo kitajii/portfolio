@@ -108,7 +108,7 @@ class ArticleController extends Controller
     {
         $article = Article::find($request->id);
         $article->delete();
-        return redirect('article/list');
+        return redirect('admin/article/list');
     }
     
     public function point(Request $request)
@@ -117,7 +117,7 @@ class ArticleController extends Controller
         if(empty($article)){
             abort(404);
         }
-        return view('article.point', ['article' => $article]);
+        return view('admin.article.point', ['article' => $article]);
     }
     
     private function isNullOrEmpty($val) {

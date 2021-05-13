@@ -112,7 +112,7 @@
             </div>
             <div class="my-3">
                 <p class="my-0">ポイント（クリックで拡大表示）</p>
-                <a href="{{ action('ArticleController@point', ['id'=>$article->id]) }}">
+                <a href="{{ action('Admin\ArticleController@point', ['id'=>$article->id]) }}">
                     <div id="map" class="detail-map shadow-sm"></div>
                 </a>
             </div>

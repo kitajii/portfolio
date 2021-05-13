@@ -36,7 +36,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 // 管理者画面
-Route::group(['prefix' => 'admin'], function(){
+Route::group(['prefix' => 'admin', 'middleware'=>''], function(){
     
     Route::get('map','Admin\ArticleController@map');
     Route::get('article/list','Admin\ArticleController@list');
