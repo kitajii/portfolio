@@ -31,11 +31,46 @@
                                 mapOptions         // マップオプション
                             );
                         }
-                        // マップにマーカーを表示する
+                        // マップにポイントのマーカーを表示する
                         var marker = new google.maps.Marker({
                             map : map,             // 対象の地図オブジェクト
                             position : pointLatLng   // 緯度・経度
                         });
+                        
+                        addListener(map);
+                        
+                        
+                        function addListener(map){
+                        
+                            //以下、ロングタップの処理
+                            google.maps.event.addListener(map, 'mousedown', function (event) {
+                               start = new Date().getTime();
+                            });
+                        
+                            google.maps.event.addListener(map, 'mouseup', function (event) {
+                                if (start) {
+                                    end = new Date().getTime();
+                                    longpress = (end - start < 500) ? false : true;
+                                    
+                                    if(longpress){
+                                        //alert(event.latLng.toString());
+                                        
+                                    var infoWindow = new google.maps.InfoWindow( {
+                                    	position: new google.maps.LatLng( event.latLng.lat(),event.latLng.lng() ) ,
+                                    	content: "<p>あいうえお</p>" ,
+                                    } ) ;
+                                    
+                                    // メソッドを実行
+                                    infoWindow.open( map ) ;
+                                    
+                                    }
+                                }
+                            });
+                        }
+                        
+                        
+                        
+                        
                     // 記事の位置情報が取得できなかった場合
                     } else {
                         alert("記事の位置情報が取得できませんでした");
