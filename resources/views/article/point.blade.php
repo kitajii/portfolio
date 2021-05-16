@@ -31,16 +31,16 @@
                                 mapOptions         // マップオプション
                             );
                         }
-                        // マップにマーカーを表示する
+                        // マップにポイントのマーカーを表示する
                         var marker = new google.maps.Marker({
                             map : map,             // 対象の地図オブジェクト
                             position : pointLatLng   // 緯度・経度
                         });
+                        
                     // 記事の位置情報が取得できなかった場合
                     } else {
                         alert("記事の位置情報が取得できませんでした");
                         }
-                    
                 },
                 // 取得失敗した場合
                 function(error) {

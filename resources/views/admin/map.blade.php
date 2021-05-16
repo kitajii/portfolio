@@ -92,7 +92,6 @@
                     }
                     
                     google.maps.event.addDomListener(window, "load", initMap);
-
                 },
                 // 取得失敗した場合
                 function(error) {

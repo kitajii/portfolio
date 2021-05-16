@@ -36,7 +36,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 // 管理者画面
-Route::group(['prefix' => 'admin', 'middleware'=>''], function(){
+Route::group(['prefix' => 'admin', 'middleware'=>'auth:admin'], function(){
     
     Route::get('map','Admin\ArticleController@map');
     Route::get('article/list','Admin\ArticleController@list');
@@ -54,7 +54,8 @@ Route::group(['prefix' => 'admin', 'middleware'=>''], function(){
     // AdminHome
     Route::get('home', 'Admin\HomeController@index')->name('admin_home');
     //login&logout
-    Route::get('login', 'Admin\LoginController@showLoginForm')->name('admin_login');
-    Route::post('login', 'Admin\LoginController@login')->name('admin_login');
-    Route::post('logout', 'Admin\LoginController@logout')->name('admin_logout');
 });
+
+    Route::get('admin/login', 'Admin\LoginController@showLoginForm')->name('admin_login');
+    Route::post('admin/login', 'Admin\LoginController@login')->name('admin_login');
+    Route::post('admin/logout', 'Admin\LoginController@logout')->name('admin_logout');
