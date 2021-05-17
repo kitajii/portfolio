@@ -16,12 +16,10 @@
             navigator.geolocation.watchPosition(
                 // 取得成功した場合
                 function(position) {
-                    // 緯度・経度を変数に格納
+                    // 現在地の緯度・経度を変数に格納
                     var myLat = position.coords.latitude;
                     var myLng = position.coords.longitude;
                     var myLatLng = new google.maps.LatLng(myLat, myLng);
-                
-                    
                     // 初回のみマップ作成
                     if(!map) {
                         // マップオプションを変数に格納
@@ -81,7 +79,7 @@
                     		infowindow.setContent(html);
                     		infowindow.open(map, marker);
                     	});
-            	        var i = 0;
+                    	var i = 0;
                     	gmarkers[i] = marker;
                     	i++;
                     	return marker;

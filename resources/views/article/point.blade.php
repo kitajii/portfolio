@@ -12,25 +12,43 @@
             navigator.geolocation.watchPosition(
                 // 取得成功した場合
                 function(position) {
+                
+                    // 現在地の緯度・経度を変数に格納
+                    var myLat = position.coords.latitude;
+                    var myLng = position.coords.longitude;
+                    var myLatLng = new google.maps.LatLng(myLat, myLng);
+                    
                     // 記事の位置情報を取得した場合
                     if( {{ $article->latitude }} && {{ $article->longitude }} ) {
+                    
                         // 緯度・経度を変数に格納
                         var pointLat = {{ $article->latitude }};
                         var pointLng = {{ $article->longitude }};
                         var pointLatLng = new google.maps.LatLng(pointLat, pointLng);
+                        
                         // 初回のみマップ作成
                         if(!map) {
+                        
                             // マップオプションを変数に格納
                             var mapOptions = {
                                 zoom : 15,          // 拡大倍率
                                 center : pointLatLng  // 緯度・経度
                             };
+                            
                             // マップオブジェクト作成
                             var map = new google.maps.Map(
                                 document.getElementById('map'), // マップを表示する要素
                                 mapOptions         // マップオプション
                             );
                         }
+                        
+                        // 現在地にマーカーを表示する
+                        var currentMarker = new google.maps.Marker({
+                            map : map,             // 対象の地図オブジェクト
+                            position : myLatLng,   // 緯度・経度
+                            icon : "https://maps.google.com/mapfiles/ms/icons/green-dot.png"
+                        });
+                        
                         // マップにポイントのマーカーを表示する
                         var marker = new google.maps.Marker({
                             map : map,             // 対象の地図オブジェクト
