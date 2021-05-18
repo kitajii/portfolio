@@ -51,6 +51,9 @@ class ProfileController extends Controller
 
         $profile->fill($new_profile)->save();
         
+        $user['name'] = $new_profile['name'];
+        $user->save();
+        
         return redirect(route('profile_detail',['id'=>$profile->id]));
     }
 }
