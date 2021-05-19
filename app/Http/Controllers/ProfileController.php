@@ -29,7 +29,7 @@ class ProfileController extends Controller
         if(empty($profile)){
             abort(404);
         }
-        return view('profile.edit',['profile'=>$profile, 'user'=>$user]);
+        return view('profile.edit',['profile' => $profile, 'user' => $user]);
     }
     
     public function update(Request $request)
@@ -54,6 +54,6 @@ class ProfileController extends Controller
         $user['name'] = $new_profile['name'];
         $user->save();
         
-        return redirect(route('profile_detail',['id'=>$profile->id]));
+        return redirect(route('profile_detail',['id' => $profile->id]));
     }
 }

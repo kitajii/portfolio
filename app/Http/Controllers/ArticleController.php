@@ -103,7 +103,7 @@ class ArticleController extends Controller
         if(empty($article)){
             abort(404);
         }
-        return view('article.detail', ['article' => $article,'user'=>$user]);
+        return view('article.detail', ['article' => $article,'user' => $user]);
     }
     
     public function edit(Request $request)
@@ -130,7 +130,7 @@ class ArticleController extends Controller
 
         $article->fill($new_article)->save();
         
-        return redirect(route('article_detail', ['id'=>$article->id]));
+        return redirect(route('article_detail', ['id' => $article->id]));
     }
     
     public function delete(Request $request)
