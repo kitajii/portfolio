@@ -42,7 +42,7 @@
                 </form>
             </div>
             <div class="container">
-                <a href="{{ route('register') }}" type="button" class="btn btn-success btn-block font-weight-bold">新規登録</a>
+                <a href="{{ route('register') }}" type="button" class="btn btn-success btn-block font-weight-bold">新規登録ページへ</a>
             </div>
         </div>
     

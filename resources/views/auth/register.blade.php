@@ -42,7 +42,10 @@
                         @enderror
                     <input type="password" id="password-confirm" class="form-control my-3" placeholder="パスワード（再入力）" name="password_confirmation" autocomplete="new-password">
                     <input class="btn btn-success btn-block font-weight-bold" type="submit" value="新規登録">
+                    
                 </form>
+                <a href="{{ route('login') }}" type="button" class="btn btn-primary btn-block font-weight-bold">ログインページへ</a>
+
             </div>
         </div>
     
