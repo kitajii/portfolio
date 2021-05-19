@@ -21,13 +21,13 @@
             <div class="container">
                 <form class="form-signin py-3" method="POST" action="{{ route('login') }}">
                     @csrf
-                <input type="email" id="email" class="form-control @error('name') is-invalid @enderror my-3" name="email" value="{{ old('email') }}" placeholder="メールアドレス" required autofocus>
-                            @error('name')
+                <input type="email" id="email" class="form-control @error('email') is-invalid @enderror my-3" name="email" value="{{ old('email') }}" placeholder="メールアドレス" autofocus>
+                            @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                    <input type="password" id="password" class="form-control @error('password') is-invalid @enderror my-3" name="password" placeholder="パスワード" required>
+                    <input type="password" id="password" class="form-control @error('password') is-invalid @enderror my-3" name="password" placeholder="パスワード">
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

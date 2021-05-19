@@ -22,25 +22,25 @@
             <div class="container">
                 <form class="py-3" method="POST" action="{{ route('register') }}">
                     @csrf
-                    <input type="text" id="name" class="form-control @error('name') is-invalid @enderror my-3"  placeholder="ユーザー名" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                    <input type="text" id="name" class="form-control @error('name') is-invalid @enderror my-3"  placeholder="ユーザー名" name="name" value="{{ old('name') }}" autocomplete="name" autofocus>
                         @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-                    <input type="email" id="inputEmail" class="form-control @error('email') is-invalid @enderror my-3" placeholder="メールアドレス" name="email" value="{{ old('email') }}" required autocomplete="email">
+                    <input type="email" id="inputEmail" class="form-control @error('email') is-invalid @enderror my-3" placeholder="メールアドレス" name="email" value="{{ old('email') }}" autocomplete="email">
                         @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-                    <input type="password" id="inputPassword" class="form-control @error('password') is-invalid @enderror my-3" placeholder="パスワード" name="password" required autocomplete="new-password">
+                    <input type="password" id="inputPassword" class="form-control @error('password') is-invalid @enderror my-3" placeholder="パスワード" name="password" autocomplete="new-password">
                         @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-                    <input type="password" id="password-confirm" class="form-control my-3" placeholder="パスワード（再入力）" name="password_confirmation" required autocomplete="new-password">
+                    <input type="password" id="password-confirm" class="form-control my-3" placeholder="パスワード（再入力）" name="password_confirmation" autocomplete="new-password">
                     <input class="btn btn-success btn-block font-weight-bold" type="submit" value="新規登録">
                 </form>
             </div>

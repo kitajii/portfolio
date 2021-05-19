@@ -30,6 +30,7 @@
                     <input type="number" step="1" min="1" max="80" name="size" class="form-control form-control-sm" style="width:50px" required>&nbsp;<span>㎝</span>
                 </div>
             </div>
+            
             <div class="form-group p-3 my-2 bg-white shadow-sm rounded">
                 <p class="h5 mb-2 font-weight-bold">写真</p>
                 <label class="btn btn-outline-primary btn-sm">
