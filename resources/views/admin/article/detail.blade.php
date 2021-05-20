@@ -92,7 +92,7 @@
                 <div class="d-flex justify-content-center bg-light shadow-sm">
                     <div class="mt-3 mr-4 pb-3">
                         <a href="{{ route('admin_profile_detail', ['id'=>$article->user_id]) }}" class="text-decoration-none text-right" style="display: block; width: 64px; height: 64px; border-radius: 50%;">
-                            <image src="{{ asset('storage/images/icon/'. $article->user->profile->icon_path) }}" class="rounded-circle border" style="width: 64px; height: 64px;"></image>
+                            <image src="{{ $article->user->profile->icon_path }}" class="rounded-circle border" style="width: 64px; height: 64px;"></image>
                         </a>
                     </div>
                     <div class="ml-4">
@@ -104,7 +104,7 @@
             <div class="mt-4">
                 <p class="m-0">サイズ：{{ $article->size }}cm</p>
                 @if(!empty($article->image_path))
-                <image src="{{ asset('storage/images/image/'. $article->image_path) }}" class="mx-auto shadow" style="width: 100%;"></image>
+                <image src="{{ $article->image_path }}" class="mx-auto shadow" style="width: 100%;"></image>
                 @endif
                 @if(!empty($article->comment))
                 <p class="mt-2 text-left">{{ $article->comment }}</p>

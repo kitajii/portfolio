@@ -36,7 +36,7 @@
                 <p class="h5 mb-2 font-weight-bold">写真</p>
                 <div class="mb-4">
                     @if(!empty($article->image_path))
-                        <image src="{{ asset('storage/images/image/'. $article->image_path) }}" class="mx-auto shadow" style="width: 128px;"></image>
+                        <image src="{{ $article->image_path }}" class="mx-auto shadow" style="width: 128px;"></image>
                         <p class="m-0">現在の投稿写真</p>
                     @endif
                 </div>

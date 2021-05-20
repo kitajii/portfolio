@@ -81,7 +81,7 @@
                         <div class="col-4 px-0">
                             <object>
                                 <a href="{{ route('admin_profile_detail', ['id'=>$article->user_id]) }}" class="mx-auto mt-2 text-decoration-none" style="display: block; width: 64px; height: 64px; border-radius: 50%;">
-                                    <image src="{{ asset('storage/images/icon/'. $article->user->profile->icon_path) }}" class="rounded-circle border" style="width: 64px; height: 64px;"></image>
+                                    <image src="{{ $article->user->profile->icon_path }}" class="rounded-circle border" style="width: 64px; height: 64px;"></image>
                                 </a>
                             </object>
                         </div>

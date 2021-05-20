@@ -40,8 +40,8 @@ class ProfileController extends Controller
         $new_profile = $request->all();
         
         if (isset($new_profile['icon_path'])) {
-            $path = $request->file('icon_path')->store('public/images/icon');
-            $profile->icon_path = basename($path);
+            $path = Storage::disk('s3')->putFile('/images/icon',$form['icon_path'],'public');
+            $profile->image_path = Storage::disk('s3')->url($path);
         } else {
             $profile->icon_path = $profile->icon_path;
         }

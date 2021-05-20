@@ -22,7 +22,7 @@ class ArticleController extends Controller
         foreach($articles as $article) {
             $val .= sprintf("{url: '%s', icon: '%s', name: '%s', created_at: '%s', lat: %.5f, lng: %.5f},",
                 route('admin_article_detail', ['id' =>$article->id]),
-                asset('storage/images/icon/'. $article->user->profile->icon_path),
+                $article->user->profile->icon_path,
                 $article->user->name,
                 $article->created_at->format('Y年m月d日 H時i分'),
                 $article->latitude,
@@ -90,8 +90,8 @@ class ArticleController extends Controller
         $new_article = $request->all();
         
         if (isset($new_article['image_path'])) {
-            $path = $request->file('image_path')->store('public/images/image');
-            $article->image_path = basename($path);
+            $path = Storage::disk('s3')->putFile('/images/image',$form['image_path'],'public');
+            $article->image_path = Storage::disk('s3')->url($path);
         } else {
             $article->image_path = $article->image_path;
         }

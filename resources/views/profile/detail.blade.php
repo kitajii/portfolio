@@ -8,7 +8,7 @@
     <div class="main container">
         <div class="p-3 my-2 mx-3 bg-white shadow-sm rounded">
             <div class="my-4">
-                <image src="{{ asset('storage/images/icon/'. $profile->icon_path) }}" class="rounded-circle border" style="width: 128px; height: 128px;"></image>
+                <image src="{{ $profile->icon_path }}" class="rounded-circle border" style="width: 128px; height: 128px;"></image>
                 <p class="h5 my-3">{{ $profile->name }}</p>
             </div>
             <div class="px-4 text-left">
@@ -56,7 +56,7 @@
                         <div class="col-4 px-0">
                             <object>
                                 <a href="{{ route('profile_detail', ['id'=>$article->user_id]) }}" class="mx-auto mt-2 text-decoration-none" style="display: block; width: 64px; height: 64px; border-radius: 50%;">
-                                    <image src="{{ asset('storage/images/icon/'. $article->user->profile->icon_path) }}" class="rounded-circle border" style="width: 64px; height: 64px;"></image>
+                                    <image src="{{ $article->user->profile->icon_path }}" class="rounded-circle border" style="width: 64px; height: 64px;"></image>
                                 </a>
                             </object>
                         </div>
