@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Profile;
 use App\Article;
 use Carbon\Carbon;
+use Storage;
 
 class ArticleController extends Controller
 {
@@ -48,7 +49,7 @@ class ArticleController extends Controller
         $new_article = $request->all();
         
         if (isset($new_article['image_path'])) {
-            $path = Storage::disk('s3')->putFile('/images/image',$form['image_path'],'public');
+            $path = Storage::disk('s3')->putFile('/images/image',$new_article['image_path'],'public');
             $article->image_path = Storage::disk('s3')->url($path);
         } else {
             $article->image_path = null;

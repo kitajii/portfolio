@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Profile;
 use App\Article;
+use Storage;
 
 class ProfileController extends Controller
 {
@@ -40,8 +41,8 @@ class ProfileController extends Controller
         $new_profile = $request->all();
         
         if (isset($new_profile['icon_path'])) {
-            $path = Storage::disk('s3')->putFile('/images/icon',$form['icon_path'],'public');
-            $profile->image_path = Storage::disk('s3')->url($path);
+            $path = Storage::disk('s3')->putFile('/images/icon',$new_profile['icon_path'],'public');
+            $profile->icon_path = Storage::disk('s3')->url($path);
         } else {
             $profile->icon_path = $profile->icon_path;
         }

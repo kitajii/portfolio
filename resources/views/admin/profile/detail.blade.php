@@ -8,7 +8,7 @@
     <div class="main container">
         <div class="p-3 my-2 mx-3 bg-white shadow-sm rounded">
             <div class="my-4">
-                <image src="{{ asset('storage/images/icon/'. $profile->icon_path) }}" class="rounded-circle border" style="width: 128px; height: 128px;"></image>
+                <image src="{{ $profile->icon_path }}" class="rounded-circle border" style="width: 128px; height: 128px;"></image>
                 <p class="h5 my-3">{{ $profile->name }}</p>
             </div>
             <div class="px-4 text-left">
