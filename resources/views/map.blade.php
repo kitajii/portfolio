@@ -141,5 +141,5 @@
 @endsection('main')
 
 @section('foot-script')
-   <script src="{{ config('services.google-map.apikey') }}"></script>
+   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQ7GF8UWRS03uApoVVzF2v_3a4VrFPxpo&callback=initMap"></script>
 @endsection('foot-script')
