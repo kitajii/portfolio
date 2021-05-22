@@ -21,7 +21,7 @@ class ArticleController extends Controller
         foreach($articles as $article) {
             $val .= sprintf("{url: '%s', icon: '%s', name: '%s', created_at: '%s', lat: %.5f, lng: %.5f},",
                 route('article_detail', ['id'=>$article->id]),
-                asset('storage/images/icon/'. $article->user->profile->icon_path),
+                $article->user->profile->icon_path,
                 $article->user->name,
                 $article->created_at->format('Y年m月d日 H時i分'),
                 $article->latitude,
