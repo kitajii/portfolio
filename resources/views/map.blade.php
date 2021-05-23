@@ -32,15 +32,6 @@
                         var mapOptions = {
                             zoom : 15,              // 拡大倍率
                             center : myLatLng,      // 緯度・経度
-                        	restriction: {          // 表示範囲の制限(琵琶湖周辺のみ)
-                        		latLngBounds: {
-                        			north : 35.6,
-                        			south : 34.9,
-                        			west : 135.8,
-                        			east : 136.4
-                        		},
-                        		strictBounds: true
-                        	}
                         };
                         // マップオブジェクト作成
                         var map = new google.maps.Map(
