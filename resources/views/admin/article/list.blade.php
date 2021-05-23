@@ -31,19 +31,19 @@
             <form class="mx-auto" action="{{ action('Admin\ArticleController@list') }}">
                 <div class="p-2 border-top">
                     <p class="mb-1">期間</p>
-                    <input type="date" name="from_date" style="font-size:13px; line-height: unset;">
+                    <input type="date" name="from_date" style="font-size:13px;">
                     <span>〜</span>
-                    <input type="date" name="until_date" style="font-size:13px; line-height: unset;">
+                    <input type="date" name="until_date" style="font-size:13px;">
                 </div>
                 <div class="p-2 border-top">
                     <p class="mb-1">時間帯</p>
-                    <input type="time" name="from_time" style="line-height: unset;">
+                    <input type="time" name="from_time">
                     <span>〜</span>
-                    <input type="time" name="until_time" style="line-height: unset;">
+                    <input type="time" name="until_time">
                 </div>
                 <div class="p-2 border-top">
                     <p class="mb-1">天気</p>
-                    <select class="form-select form-select-sm" name="weather_id" style="line-height: unset;">
+                    <select class="form-select form-select-sm" name="weather_id">
                         <option value="" selected>-</option>
                         <option value="1">晴れ</option>
                         <option value="2">曇り</option>
@@ -52,9 +52,9 @@
                 </div>
                 <div class="p-2 border-top">
                     <p class="mb-1">サイズ</p>
-                    <input type="number" name="from_size" style="width:50px; line-height: unset;">
+                    <input type="number" name="from_size" style="width:50px">
                     <span>〜</span>
-                    <input type="number" name="to_size" style="width:50px; line-height: unset;">
+                    <input type="number" name="to_size" style="width:50px">
                     <span>㎝</span>
                 </div>
                 <button class="btn btn-light btn-block btn-sm font-weight-bold my-3 mx-auto text-secondary"
