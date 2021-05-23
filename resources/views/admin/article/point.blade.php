@@ -66,7 +66,7 @@
                         google.maps.event.addListener(map, 'mouseup', function (event) {
                             if (start) {
                                 end = new Date().getTime();
-                                longpress = (end - start < 500) ? false : true; //長押し：0.5秒
+                                longpress = (end - start < 2000) ? false : true; //長押し：2秒
                                 
                                 if(longpress){
                                     
