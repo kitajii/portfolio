@@ -140,6 +140,7 @@
             <input id="newLat" name="latitude" type="hidden" value="">
             <input id="newLng" name="longitude" type="hidden" value="">
         </form>
+        <p class="bg-success text-light p-2 rounded" style="position:fixed; bottom:84px; right:65px;">画面長押し：ポイント更新ボタンを表示</p>
     </div>
 @endsection('main')
 
