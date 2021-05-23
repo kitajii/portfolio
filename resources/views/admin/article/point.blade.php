@@ -10,11 +10,7 @@
     function initMap() {
         // Geolocation APIに対応している
         if (navigator.geolocation) {
-<<<<<<< HEAD
             // 現在地を取得
-=======
-            // 現在地を取得(watchPositionで自動更新)
->>>>>>> cc29308f7b85d01015b6ee0287b7662a2225e1be
             navigator.geolocation.getCurrentPosition(
                 // 取得成功した場合
                 function(position) {
