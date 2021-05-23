@@ -9,7 +9,7 @@
         // Geolocation APIに対応している
         if (navigator.geolocation) {
             // 現在地を取得(watchPositionで自動更新)
-            navigator.geolocation.watchPosition(
+            navigator.geolocation.getCurrentPosition(
                 // 取得成功した場合
                 function(position) {
                 
