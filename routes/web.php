@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 Route::group(['middleware'=>'auth'], function() {
-    Route::get('map','ArticleController@map');
+    Route::get('/','ArticleController@map');
     Route::post('article/create','ArticleController@add');
     Route::post('article/list','ArticleController@create');
     Route::get('article/list','ArticleController@list');
@@ -32,13 +32,13 @@ Route::group(['middleware'=>'auth'], function() {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 
 // 管理者画面
 Route::group(['prefix' => 'admin', 'middleware'=>'auth:admin'], function(){
     
-    Route::get('map','Admin\ArticleController@map');
+    Route::get('/','Admin\ArticleController@map');
     Route::get('article/list','Admin\ArticleController@list');
     Route::get('article','Admin\ArticleController@detail')->name('admin_article_detail');
     Route::get('article/edit','Admin\ArticleController@edit');
@@ -52,7 +52,7 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth:admin'], function(){
     Route::patch('profile','Admin\ProfileController@update');
     
     // AdminHome
-    Route::get('home', 'Admin\HomeController@index')->name('admin_home');
+    // Route::get('home', 'Admin\HomeController@index')->name('admin_home');
     //login&logout
 });
 
