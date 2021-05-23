@@ -12,8 +12,8 @@
         var gmarkers = [0];
         // Geolocation APIに対応している
         if (navigator.geolocation) {
-            // 現在地を取得(watchPositionで自動更新)
-            navigator.geolocation.watchPosition(
+            // 現在地を取得
+            navigator.geolocation.getCurrentPosition(
                 // 取得成功した場合
                 function(position) {
                     // 現在地の緯度・経度を変数に格納

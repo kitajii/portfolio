@@ -10,8 +10,8 @@
     function initMap() {
         // Geolocation APIに対応している
         if (navigator.geolocation) {
-            // 現在地を取得(watchPositionで自動更新)
-            navigator.geolocation.watchPosition(
+            // 現在地を取得
+            navigator.geolocation.getCurrentPosition(
                 // 取得成功した場合
                 function(position) {
                 
@@ -66,7 +66,7 @@
                         google.maps.event.addListener(map, 'mouseup', function (event) {
                             if (start) {
                                 end = new Date().getTime();
-                                longpress = (end - start < 2000) ? false : true; //長押し：2秒
+                                longpress = (end - start < 1500) ? false : true; //長押し：1.5秒
                                 
                                 if(longpress){
                                     
