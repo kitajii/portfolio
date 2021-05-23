@@ -30,7 +30,7 @@
         @if(count($articles) > 0)
         @foreach($articles as $article)
         <ul class="list-unstyled mb-0">
-            <a class="text-secondary text-decoration-none" href="{{ route('article_detail', ['id'=>$article->id]) }}">
+            <a class="text-secondary text-decoration-none" href="{{ route('admin_article_detail', ['id'=>$article->id]) }}">
                 <li class="border-bottom py-3">
                     <div class="item-top mx-auto">
                         <p class="d-inline align-middle mx-2">{{ $article->created_at->format('Y年m月d日 H時i分') }}</p>
@@ -46,7 +46,7 @@
                     <div class="item-bottom d-flex justify-content-around">
                         <div class="col-4 px-0">
                             <object>
-                                <a href="{{ route('profile_detail', ['id'=>$article->user_id]) }}" class="mx-auto mt-2 text-decoration-none" style="display: block; width: 64px; height: 64px; border-radius: 50%;">
+                                <a href="{{ route('admin_profile_detail', ['id'=>$article->user_id]) }}" class="mx-auto mt-2 text-decoration-none" style="display: block; width: 64px; height: 64px; border-radius: 50%;">
                                     <image src="{{ $article->user->profile->icon_path }}" class="rounded-circle border" style="width: 64px; height: 64px;"></image>
                                 </a>
                             </object>
