@@ -73,7 +73,7 @@ class RegisterController extends Controller
         Profile::create([
             'user_id' => $user->id,
             'name' => $user->name,
-            'icon_path' => 'icon.png',
+            'icon_path' => 'https://tsurikomi.s3.us-east-2.amazonaws.com/images/icon/icon.png',
             'age' => 0,
             'experience' => 0,
             'introduction' => ''
