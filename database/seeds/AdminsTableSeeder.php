@@ -16,7 +16,13 @@ class AdminsTableSeeder extends Seeder
             'id' => 1,
             'name' => '北島和希',
             'email' => 'kazu.rmcf@gmail.com',
-            'password' => \Hash::make('kazu9529'),
+            'password' => \Hash::make('tsurikomi'),
+        ],
+        [
+            'id' => 2,
+            'name' => 'ゲスト',
+            'email' => 'guest@guest.com',
+            'password' => \Hash::make('guest123'),
         ],
       ]);
       }
