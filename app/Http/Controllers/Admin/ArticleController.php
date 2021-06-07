@@ -39,34 +39,36 @@ class ArticleController extends Controller
     {
         //絞り込み検索フォームからのリクエストが１つでもある場合
         if( !$this->isNullOrEmpty($request->from_date) || !$this->isNullOrEmpty($request->until_date) || !$this->isNullOrEmpty($request->from_time) || !$this->isNullOrEmpty($request->until_time) || !$this->isNullOrEmpty($request->weather_id) || !$this->isNullOrEmpty($request->from_size) || !$this->isNullOrEmpty($request->to_size) ){
-            if(!$this->isNullOrEmpty($request->from_date) && !$this->isNullOrEmpty($request->until_date)){ //期間が指定されていたら
-                //$articlesから期間でデータ検索して$articlesに結果代入
-                $from_date = new Carbon($request->from_date . ' 00:00:00');
-                $until_date = new Carbon($request->until_date . ' 23:59:59');
-                $articles = Article::whereBetween('created_at', [$from_date, $until_date])->get()->sortByDesc('created_at');
+            
+            $from_date = new Carbon($request->from_date . ' 00:00:00');
+            $until_date = new Carbon($request->until_date . ' 23:59:59');
+            $from_time = $request->from_time;
+            $until_time = $request->until_time;
+            $weather_id = $request->weather_id;
+            $from_size = $request->from_size;
+            $to_size = $request->to_size;
+            $query = Article::query();
+            
+            if(!$this->isNullOrEmpty($request->from_date) && !$this->isNullOrEmpty($request->until_date)){
+                $query->whereBetween('created_at', [$from_date, $until_date]);
             }
-            if(!$this->isNullOrEmpty($request->from_time) || !$this->isNullOrEmpty($request->until_time)){ //時間が指定されていたら
-                //時間でデータ検索して$articlesに結果代入
-                $from_time = $request->from_time;
-                $until_time = $request->until_time;
-                $query = sprintf("time_format(created_at, '%%H:%%k:%%s') between '%s:00' and '%s:59'", $from_time, $until_time);
-                $articles = Article::whereRaw($query)->get()->sortByDesc('created_at'); 
+            if(!$this->isNullOrEmpty($request->from_time) || !$this->isNullOrEmpty($request->until_time)){
+                $sql = sprintf("time_format(created_at, '%%H:%%k:%%s') between '%s:00' and '%s:59'", $from_time, $until_time);
+                $query->whereRaw($sql); 
             }
             if(!$this->isNullOrEmpty($request->weather_id)){
-                //天気でデータ検索して$articlesに結果代入
-                $weather_id = $request->weather_id;
-                $articles = Article::where('weather_id',$weather_id)->get()->sortByDesc('created_at');
+                $query->where('weather_id',$weather_id);
             }
             if(!$this->isNullOrEmpty($request->size) || !$this->isNullOrEmpty($request->to_size)){
-                $from_size = $request->from_size;
-                $to_size = $request->to_size;
-                $articles = Article::whereBetween('size', [$from_size, $to_size])->get();
-                //sizeでデータ検索して$articlesに結果代入
+            $query->whereBetween('size', [$from_size, $to_size]);
             }
+            
+            $articles = $query->get()->sortByDesc('created_at');
+            
         }else{
             $articles = Article::all()->sortByDesc('created_at'); //全記事をリスト表示
         }
-        return view('admin.article.list', ['articles' => $articles]);
+        return view('article.list', ['articles' => $articles]);
     }
     
     public function detail(Request $request)
