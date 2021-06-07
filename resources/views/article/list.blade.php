@@ -52,9 +52,9 @@
                 </div>
                 <div class="p-2 border-top">
                     <p class="mb-1">サイズ</p>
-                    <input type="number" name="from_size" style="width:50px">
+                    <input type="number" step="1" min="1" max="80" name="from_size" style="width:50px">
                     <span>〜</span>
-                    <input type="number" name="to_size" style="width:50px">
+                    <input type="number"  name="to_size" style="width:50px">
                     <span>㎝</span>
                 </div>
                 <button class="btn btn-light btn-block btn-sm font-weight-bold my-3 mx-auto text-secondary"
