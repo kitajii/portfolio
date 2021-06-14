@@ -53,8 +53,7 @@ class ArticleController extends Controller
                 $query->whereBetween('created_at', [$from_date, $until_date]);
             }
             if(!$this->isNullOrEmpty($request->from_time) || !$this->isNullOrEmpty($request->until_time)){
-                $sql = sprintf("time_format(created_at, '%%H:%%k:%%s') between '%s:00' and '%s:59'", $from_time, $until_time);
-                $query->whereRaw($sql); 
+                $query->whereTime('created_at','>=',$from_time.':00')->whereTime('created_at','<=',$until_time.':59')->get();
             }
             if(!$this->isNullOrEmpty($request->weather_id)){
                 $query->where('weather_id',$weather_id);
