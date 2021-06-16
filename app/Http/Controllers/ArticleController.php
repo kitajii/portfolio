@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Profile;
 use App\Article;
-use Carbon\Carbon;
 use Storage;
 
 class ArticleController extends Controller
@@ -69,8 +68,8 @@ class ArticleController extends Controller
         //絞り込み検索フォームからのリクエストが１つでもある場合
         if( !$this->isNullOrEmpty($request->from_date) || !$this->isNullOrEmpty($request->until_date) || !$this->isNullOrEmpty($request->from_time) || !$this->isNullOrEmpty($request->until_time) || !$this->isNullOrEmpty($request->weather_id) || !$this->isNullOrEmpty($request->from_size) || !$this->isNullOrEmpty($request->to_size) ){
             
-            $from_date = new Carbon($request->from_date . ' 00:00:00');
-            $until_date = new Carbon($request->until_date . ' 23:59:59');
+            $from_date = $request->from_date;
+            $until_date = $request->until_date;
             $from_time = $request->from_time;
             $until_time = $request->until_time;
             $weather_id = $request->weather_id;
@@ -78,11 +77,11 @@ class ArticleController extends Controller
             $to_size = $request->to_size;
             $query = Article::query();
             
-            if(!$this->isNullOrEmpty($request->from_date) && !$this->isNullOrEmpty($request->until_date)){
-                $query->whereBetween('created_at', [$from_date, $until_date]);
+            if(!$this->isNullOrEmpty($request->from_date) || !$this->isNullOrEmpty($request->until_date)){
+                $query->whereDate('created_at','>=',$from_date)->whereDate('created_at','<=',$until_date);
             }
             if(!$this->isNullOrEmpty($request->from_time) || !$this->isNullOrEmpty($request->until_time)){
-                $query->whereTime('created_at','>=',$from_time.':00')->whereTime('created_at','<=',$until_time.':59')->get();
+                $query->whereTime('created_at','>=',$from_time.':00')->whereTime('created_at','<=',$until_time.':59');
             }
             if(!$this->isNullOrEmpty($request->weather_id)){
                 $query->where('weather_id',$weather_id);
