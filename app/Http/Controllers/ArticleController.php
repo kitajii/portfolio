@@ -66,7 +66,7 @@ class ArticleController extends Controller
     {
 
         //絞り込み検索フォームからのリクエストが１つでもある場合
-        if( !$this->isNullOrEmpty($request->from_date) || !$this->isNullOrEmpty($request->until_date) || !$this->isNullOrEmpty($request->from_time) || !$this->isNullOrEmpty($request->until_time) || !$this->isNullOrEmpty($request->weather_id) || !$this->isNullOrEmpty($request->from_size) || !$this->isNullOrEmpty($request->to_size) ){
+        if( !empty($request->from_date) || !empty($request->until_date) || !empty($request->from_time) || !empty($request->until_time) || !empty($request->weather_id) || !empty($request->from_size) || !empty($request->to_size) ){
             
             $from_date = $request->from_date;
             $until_date = $request->until_date;
@@ -150,8 +150,5 @@ class ArticleController extends Controller
         }
         return view('article.point', ['article' => $article]);
     }
-    
-    private function isNullOrEmpty($val) {
-    return $val == null || $val == '';
-    } 
+
 }
